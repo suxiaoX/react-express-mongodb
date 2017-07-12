@@ -1,5 +1,5 @@
 /**
- * Created by '苏萧' on 2017/7/11.
+ * Created by "苏萧" on 2017/7/11.
  */
 /**
  * 定义公共的配置
@@ -18,12 +18,12 @@
  * copy-webpack-plugin 文件拷贝
  * */
 
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');// css3 前缀自动补全
-const HtmlWebpackPlugin = require('html-webpack-plugin');// 自动生成 HTML
+const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");// css3 前缀自动补全
+const HtmlWebpackPlugin = require("html-webpack-plugin");// 自动生成 HTML
 
-const config = require('./config');//引入配置
-const api = require('./api');
+const config = require("./config");//引入配置
+const api = require("./api");
 const defPath = config.defPath;
 const APP_PATH = defPath.APP_PATH;//源码位置
 
@@ -34,19 +34,19 @@ module.exports = function () {
       //用于查找的模块目录
       modules: [
         APP_PATH,
-        'node_modules'
+        "node_modules"
       ],
       // 使用的扩展名 自动解析确定的扩展，能够使用户在引入时不带扩展
-      extensions: ['.js', '.jsx', '.json', '.css']
+      extensions: [".js", ".jsx", ".json", ".css"]
     },
     cache: true, //启用缓存
     module: {
       rules: [
         {
-          enforce: 'pre',//前置执行 'pre'|'post' 表示 loader 的前置和后置
+          enforce: "pre",//前置执行 "pre"|"post" 表示 loader 的前置和后置
           test: /\.(js|jsx)$/,
           include: APP_PATH,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           options: {
             configFile: defPath.ESLINT_PATH //指定eslint的配置文件路径
           }
@@ -54,11 +54,11 @@ module.exports = function () {
         {
           test: /\.(js|jsx)$/,
           include: APP_PATH,
-          loader: 'babel-loader'
+          loader: "babel-loader"
         },
         { // 向应用特定文件中注入变量，应用中可以直接使用 baseUrl
           test: require.resolve(defPath.REQUEST_PATH),
-          loader: 'imports-loader?baseUrl=>' + JSON.stringify( api[process.env.NODE_ENV || 'development'] )
+          loader: "imports-loader?baseUrl=>" + JSON.stringify( api[process.env.NODE_ENV || "development"] )
         }
       ]
     },
@@ -66,7 +66,7 @@ module.exports = function () {
       // autoprefixer 是 postcss-loader 的 插件，需要在这里进行 autoprefixer 插件的配置
       new webpack.LoaderOptionsPlugin({
         options: {
-          context: '/',
+          context: "/",
           minimize: true,
           postcss: [autoprefixer(config.autoConfig)]
         }
@@ -74,9 +74,9 @@ module.exports = function () {
       // 依照模板生成 html
       new HtmlWebpackPlugin({
         template: defPath.TPL_PATH,
-        title: 'LeoBlog',
-        filename: 'index.html',
-        inject: 'body',
+        title: "LeoBlog",
+        filename: "index.html",
+        inject: "body",
         minify: {
           removeComments: true
         },
