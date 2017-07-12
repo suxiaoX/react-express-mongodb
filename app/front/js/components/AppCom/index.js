@@ -10,7 +10,6 @@ export default class AppCom extends Component {
       super(props);
    }
    render() {
-
       return (
          <div id="app-container">
             <header className="app-header">成员列表</header>
