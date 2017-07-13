@@ -56,6 +56,7 @@
     "webpack-merge": "^4.0.0"
   },
   "dependencies": {
+    "antd": "^2.12.0",
     "es6-promise": "^4.0.5",
     "isomorphic-fetch": "^2.2.1",
     "pure-render-decorator": "^1.2.1",
