@@ -1,0 +1,24 @@
+.left-menu {
+  background: rgb(64, 64 ,64);
+  width: 13%;
+  height: 100%;
+  .nav {
+    font-size: 16px;
+    font-weigth: 400;
+    li {
+      height: 44px;
+      line-height: 44px;
+      a {
+        display: block;
+        padding-left: 14px;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+      }
+      .active {
+        background: rgb(36, 35, 40);
+        color: mediumvioletred;
+      }
+    }
+  }
+}

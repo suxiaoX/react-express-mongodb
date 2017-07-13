@@ -15,7 +15,7 @@ export default (
     <IndexRoute component={Home} />
     <Route path="/home" component={Home} />
     <Route path="/about" component={About} />
-    <Route path="/singin" component={Login} />
+    <Route path="/sign" component={Login} />
     <Route path="/404" component={NotFound} />
     <Redirect from="*" to="/404"/>
     {/*<Route path="/repos/:name/:paramName" component={ParamName}/>*/}

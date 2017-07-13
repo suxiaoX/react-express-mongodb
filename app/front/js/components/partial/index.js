@@ -7,7 +7,7 @@ import { Link } from 'react-router'
 export default class Partial extends React.Component {
   render() {
     return (
-      <Link {...this.props} activeStyle={{ color: 'red' }} />
+      <Link {...this.props} activeClassName='active' />
     );
   }
 }
