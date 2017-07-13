@@ -4,13 +4,19 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+// import { syncHistoryWithStore } from 'react-router-redux';
+// import { browserHistory } from 'react-router';
+// import { syncHistoryWithStore, routerMiddleware, push } from 'react-router-redux'
 
 import rootReducer from '../reducers'
 
 const logger = createLogger({ collapsed: true });
+// const reduxRouterMiddleware = routerMiddleware(browserHistory);
+
 let createStoreWithMiddleware = compose(
   applyMiddleware(
     thunkMiddleware,
+    // reduxRouterMiddleware,
     logger
   ),
   window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore);

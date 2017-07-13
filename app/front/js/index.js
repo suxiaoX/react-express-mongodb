@@ -4,8 +4,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from "react-hot-loader";
-import {syncHistoryWithStore} from 'react-router-redux';
-import {Provider} from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, browserHistory, Link, IndexLink, IndexRoute } from 'react-router';
 import injectTapEventPlugin from "react-tap-event-plugin";
 
@@ -20,13 +20,15 @@ injectTapEventPlugin();
 // 创建一个增强版的history来结合store同步导航事件
 // const store = configureStore(browserHistory);
 const store = configureStore();
-const browhistory = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(browserHistory, store);
+
+// history.listen(location => analyticsService.track(location.pathname))
 
 console.log(process.env.NODE_ENV);
 render(
   <AppContainer>
     <Provider store={store}>
-      <Router history={browhistory} routes={routes} />
+      <Router history={history} routes={routes} />
     </Provider>
   </AppContainer>,
   document.getElementById('app')
