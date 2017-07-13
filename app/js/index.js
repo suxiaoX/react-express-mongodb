@@ -11,12 +11,6 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 
 import routes from './router';
 
-import Partial from './components/partial'
-import About from './components/About';
-import Home from './components/Home';
-import Login from './components/Login'
-// import ParamName from './components/params/ParamName'
-
 import '../scss/reset.scss'
 // import { DatePicker } from 'antd';
 // react 的插件，提供onTouchTap()

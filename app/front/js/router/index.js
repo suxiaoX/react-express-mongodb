@@ -26,7 +26,7 @@ export default (
         <Route path="guestbook" component={NotFound} />
         <Route path="sign" component={Login} />
         <Route path="404" component={NotFound} />
-        <Redirect from="*" to="404"/>
+        <Redirect from="*" to="/404"/>
         {/*<Route path="/repos/:name/:paramName" component={ParamName}/>*/}
     </Route>
 )
