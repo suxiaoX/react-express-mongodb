@@ -13,10 +13,11 @@ export default class App extends React.Component {
       <div className="wraper">
         <Header />
         <div className="main clearfix">
-          <NavLink />
-          <div className="right-content fl">
-            {this.props.children}
-          </div>
+          {/*<NavLink />*/}
+          {this.props.children}
+          {/*<div className="right-content fl">*/}
+            {/*{this.props.children}*/}
+          {/*</div>*/}
         </div>
       </div>
     );

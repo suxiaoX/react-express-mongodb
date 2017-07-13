@@ -1,9 +1,18 @@
 .wraper {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   .main {
-    width: 100%;
+    width: 90%;
     height: 90%;
+    padding-top: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    div {
+      &:first-child {
+        height: 100%;
+      }
+    }
     .right-content {
       width: 87%;
     }

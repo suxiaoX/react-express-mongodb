@@ -8,16 +8,15 @@ import '../../../scss/nav.scss';
 export default class NavLink extends React.Component {
   render() {
     return (
-      <div className="left-menu fl">
-        <ul className="nav">
-          {/*<li><IndexLink to="/" activeStyle={{ color: 'red' }}>BLOG</IndexLink></li>*/}
-          <li><Partial to="/" onlyActiveOnIndex={true}>BLOG</Partial></li>
-          <li><Partial to="/home">首页</Partial></li>
-          <li><Partial to="/about">关于我</Partial></li>
-          <li><Partial to="/sign">登录</Partial></li>
-          {/*<li><Partial to="/repos/leo/suxiao">苏萧</Partial></li>*/}
+      <nav className="tabs-nav">
+        <ul className="clearfix">
+          <li className="fl"><Partial to="/home" onlyActiveOnIndex={true}>首页</Partial></li>
+          <li className="fl"><Partial to="/blog">我的博客</Partial></li>
+          <li className="fl"><Partial to="/about">关于</Partial></li>
+          <li className="fl"><Partial to="/guestbook">留言</Partial></li>
+          <li className="fl"><Partial to="/sign">登录</Partial></li>
         </ul>
-      </div>
+      </nav>
     );
   }
 }

@@ -1,9 +1,32 @@
 .header {
-  height: 10%;
+  height: 88px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
   .title {
     height: 100%;
     line-height: 88px;
     padding-left: 16px;
     color: rgb(102, 102, 102);
+  }
+  .tabs-nav {
+    ul {
+      height: 100%;
+    }
+    li {
+      height: 100%;
+      line-height: 88px;
+    }
+    a {
+      height: 100%;
+      font-size: 16px;
+      display: block;
+      padding: 0 15px;
+    }
+    .active {
+      border-bottom: 2px solid #ff6600;
+      color: #ff6600;
+    }
   }
 }

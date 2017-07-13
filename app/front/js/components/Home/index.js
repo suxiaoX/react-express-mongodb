@@ -4,7 +4,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-export default class Partial extends React.Component {
+export default class Home extends React.Component {
   render() {
     return (
       <div>首页</div>
