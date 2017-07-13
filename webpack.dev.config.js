@@ -37,9 +37,18 @@ module.exports = webpackMerge(baseConfig(), {
         test: /\.(scss|sass|less|css)$/,
         include: APP_PATH, //  必须匹配选项
         use: [ // 2.x 版本改为 use 代替 loaders，必须加 -loader
-          "style-loader", "css-loader", "postcss-loader", "sass-loader", "less-loader" + config.sassLoaderSuffix
+          "style-loader", "css-loader", "postcss-loader", "sass-loader" + config.sassLoaderSuffix
         ]
       },
+      /*
+      {
+        test: /\.(less|css)$/,
+        include: APP_PATH, //  必须匹配选项
+        use: [ // 2.x 版本改为 use 代替 loaders，必须加 -loader
+          "style-loader", "css-loader", "postcss-loader", "less-loader" + config.sassLoaderSuffix
+        ]
+      },
+      */
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
         include: APP_PATH,

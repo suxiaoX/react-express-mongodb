@@ -11,7 +11,7 @@ import routes from './router';
 
 
 import '../scss/reset.scss'
-import 'antd/dist/antd.less';
+// import 'antd/lib/date-picker/style/css';
 // import { DatePicker } from 'antd';
 // react 的插件，提供onTouchTap()
 injectTapEventPlugin();
