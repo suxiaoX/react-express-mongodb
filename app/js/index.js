@@ -1,41 +1,81 @@
-/*
-   app/js/index.js
-   入口文件, 配置 webpack 热加载模块
-*/
-import '../scss/index.scss';
+/**
+ * Created by suxiao on 2017/7/12.
+ */
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { AppContainer } from "react-hot-loader";
+// import { BrowserRouter, Router, HashRouter, Math, Route, Link, hasHistory, IndexLink } from 'react-router-dom';
+// import { Link } from 'react-router';
+import { Router, Route, hashHistory, browserHistory, Link, IndexLink, IndexRoute } from 'react-router'
+import injectTapEventPlugin from "react-tap-event-plugin";
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import Partial from './components/partial'
+import ParamName from './components/params/ParamName'
 
-// 引入原始的配置模块
-import Root from './containers/Root';
-
-const mountNode = document.getElementById('app');
+import '../scss/reset.scss'
 
 // react 的插件，提供onTouchTap()
 injectTapEventPlugin();
-
-// 封装 render
-const render = (Component) => {
-	ReactDOM.render((
-		<AppContainer>
-			<Component/>
-		</AppContainer>
-	), mountNode);
-};
-
-render(Root);
-console.log(process.env.NODE_ENV);
-
-if (module.hot && process.env.NODE_ENV !== 'production') {
-	module.hot.accept('./containers/Root', (err) => {
-		if (err) {
-			console.log(err);
-		}
-		// 卸载 react 模块后 重装
-		ReactDOM.unmountComponentAtNode(mountNode);
-		render(Root);
-	});
+class Home extends Component {
+  render() {
+    return (
+      <div>首页</div>
+    )
+  }
 }
+class About extends Component {
+  render() {
+    return (
+      <div>关于我</div>
+    )
+  }
+}
+class Singin extends Component {
+  render() {
+    return (
+      <div>登录</div>
+    )
+  }
+}
+class App extends Component {
+  constructor (props) {
+    super(props)
+  }
+  render () {
+    return (
+      <div className="wraper">
+        <div className="main">
+          <div className="left-menu">
+            <h1 className="title">苏萧的BLOG</h1>
+            <ul className="nav">
+              {/*<li><IndexLink to="/" activeStyle={{ color: 'red' }}>BLOG</IndexLink></li>*/}
+              <li><Partial to="/" onlyActiveOnIndex={true}>BLOG</Partial></li>
+              <li><Partial to="/home">首页</Partial></li>
+              <li><Partial to="/about">关于我</Partial></li>
+              <li><Partial to="/singin">登录</Partial></li>
+              <li><Partial to="/repos/leo/suxiao">苏萧</Partial></li>
+            </ul>
+          </div>
+          <div className="right-content">
+            {this.props.children}
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+console.log(process.env.NODE_ENV);
+render(
+  <AppContainer>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/singin" component={Singin} />
+        <Route path="/repos/:name/:paramName" component={ParamName}/>
+      </Route>
+    </Router>
+  </AppContainer>,
+  document.getElementById('app')
+);
