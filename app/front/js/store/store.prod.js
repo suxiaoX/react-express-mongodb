@@ -3,15 +3,12 @@
  */
 import { compose, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 
 import rootReducer from '../reducers'
 
-const logger = createLogger({ collapsed: true });
 let createStoreWithMiddleware = compose(
   applyMiddleware(
-    thunkMiddleware,
-    logger
+    thunkMiddleware
   )
 );
 

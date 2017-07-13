@@ -4,7 +4,6 @@
     <list default="true" id="d0237ba1-17ca-446a-8b98-1b1035ba98f9" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/front/js/actions/about.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/front/js/reducers/about.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/front/js/store/store.prod.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/server/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/constants/index.js" afterPath="$PROJECT_DIR$/app/front/js/constants/index.js" />
@@ -12,6 +11,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/router/index.js" afterPath="$PROJECT_DIR$/app/front/js/router/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/store/index.js" afterPath="$PROJECT_DIR$/app/front/js/store/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/store/store.dev.js" afterPath="$PROJECT_DIR$/app/front/js/store/store.dev.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/store/store.prod.js" afterPath="$PROJECT_DIR$/app/front/js/store/store.prod.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/index.js" afterPath="$PROJECT_DIR$/app/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.dev.config.js" afterPath="$PROJECT_DIR$/webpack.dev.config.js" />
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.dev.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="store.dev.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/front/js/store/store.dev.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
               <folding>
                 <element signature="e#41#103#0" expanded="true" />
               </folding>
@@ -95,14 +95,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.prod.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="store.prod.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/front/js/store/store.prod.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-              <folding>
-                <element signature="e#41#103#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -216,7 +214,6 @@
         <option value="$PROJECT_DIR$/webpack.dev.config.js" />
         <option value="$PROJECT_DIR$/app/front/js/constants/index.js" />
         <option value="$PROJECT_DIR$/app/front/js/store/index.js" />
-        <option value="$PROJECT_DIR$/app/front/js/store/store.prod.js" />
         <option value="$PROJECT_DIR$/app/front/js/actions/about.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/front/js/reducers/about.js" />
@@ -224,6 +221,7 @@
         <option value="$PROJECT_DIR$/app/front/js/reducers/index.js" />
         <option value="$PROJECT_DIR$/app/front/js/index.js" />
         <option value="$PROJECT_DIR$/app/front/js/store/store.dev.js" />
+        <option value="$PROJECT_DIR$/app/front/js/store/store.prod.js" />
       </list>
     </option>
   </component>
@@ -526,12 +524,12 @@
       <workItem from="1499668317330" duration="31566000" />
       <workItem from="1499853466233" duration="1504000" />
       <workItem from="1499909269330" duration="612000" />
-      <workItem from="1499909893958" duration="23892000" />
+      <workItem from="1499909893958" duration="24149000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58484000" />
+    <option name="totallyTimeSpent" value="58741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="23" width="1920" height="1177" extended-state="6" />
@@ -947,16 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/js/store/store.prod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="e#41#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/server/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -995,11 +983,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/front/js/store/store.dev.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
           <folding>
             <element signature="e#41#103#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/front/js/store/store.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
