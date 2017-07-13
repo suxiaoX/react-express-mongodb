@@ -6,7 +6,7 @@ import BlogLink from './BlogLink'
 export class Auto extends React.Component {
   render() {
     return (
-      <div className="clearfix">
+      <div className="clearfix h100">
         <BlogLink />
         <div className="right-content fl">Auto</div>
       </div>
