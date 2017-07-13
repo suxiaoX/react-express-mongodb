@@ -7,7 +7,7 @@ import { Router, Route, hashHistory, browserHistory, Link, IndexLink, IndexRoute
 import About from '../components/About';
 import Home from '../components/Home';
 import Login from '../components/Login';
-import App from '../container/App';
+import App from '../containers/App';
 
 export default (
     <Route path="/" component={App}>
