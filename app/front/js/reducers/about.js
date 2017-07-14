@@ -15,7 +15,7 @@ const aboutState = (state=initialState, action) => {
       if (action.info !== undefined) {
         info = action.info
       }
-      return Object.assign({}, state, {info:info, isFetching:false})
+      return Object.assign({}, state, {info:info, isFetching:false});
     default:
       return state
   }
