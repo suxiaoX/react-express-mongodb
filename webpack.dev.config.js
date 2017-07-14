@@ -82,6 +82,7 @@ module.exports = webpackMerge(baseConfig(), {
       manifestVariable: "webpackManifest" // 全局变量的名称，webpack 将利用它查找 manifest JSON 对象
     })
   ],
+
   devServer: { // 开启服务器
     contentBase: defPath.DEV_PATH,// 开启服务的路径
     publicPath: "/",
@@ -108,6 +109,7 @@ module.exports = webpackMerge(baseConfig(), {
         changeOrigin: true
       }
     }
+
     //使用的url 必须以 / 开始 否则不会代理到指定地址
     /**
      * --实例使用方法--
@@ -126,4 +128,5 @@ module.exports = webpackMerge(baseConfig(), {
     })
     * */
   }
+
 });

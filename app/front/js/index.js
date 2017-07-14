@@ -3,11 +3,12 @@
  */
 import React from 'react';
 import { render } from 'react-dom';
-import { AppContainer } from "react-hot-loader";
+import { AppContainer } from 'react-hot-loader';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, browserHistory, Link, IndexLink, IndexRoute } from 'react-router';
-import injectTapEventPlugin from "react-tap-event-plugin";
+// import { Router, Route, hashHistory, browserHistory, Link, IndexLink, IndexRoute } from 'react-router';
+import { Router, browserHistory } from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import routes from './router';
 import configureStore from './store'

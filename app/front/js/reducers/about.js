@@ -4,11 +4,11 @@
 import * as types from '../constants';
 
 const initialState = {
-  info: "about",
+  info: 'about',
   isFetching: true
 };
 
-const aboutState = (state=initialState, action) => {
+const  aboutState = (state=initialState, action) => {
   switch (action) {
     case types.FETCH_USER_INFO:
       let info = {};
