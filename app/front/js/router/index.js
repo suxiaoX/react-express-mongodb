@@ -7,16 +7,16 @@ import { Router, Route, hashHistory, browserHistory, Link, IndexLink, IndexRoute
 import About from '../components/About';
 import Home from '../components/Home';
 import Login from '../components/Login';
-import Blog from '../components/Blog';
+// import Blog from '../components/Blog';
 import App from '../containers/App';
 import NotFound from '../components/NotFound'
-import { All, Auto, Mongo, Node } from '../components/Blog';
+import { All, Auto, Mongo, Node, Blog } from '../components/Blog';
 
 export default (
     <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="home" component={Home}/>
-        <Route path="blog">
+        <Route path="/blog" component={Blog}>
             <IndexRoute component={All} />
             <Route path="node" component={Node} />
             <Route path="auto" component={Auto} />

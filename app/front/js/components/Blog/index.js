@@ -17,3 +17,4 @@ export { All } from './All';
 export { Auto } from './Auto';
 export { Mongo } from './Mongo';
 export { Node } from './Node';
+export { Blog } from './Blog';
