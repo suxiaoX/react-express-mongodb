@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 //   res.send('hello world')
 // });
 //解决子路由刷新无法访问的问题
-app.get('/*', (req, res) => {
+app.get('/*', (req, res, next) => {
   const filename = path.join(config.output.path, 'index.html')
   console.log(filename);
   compiler.outputFileSystem.readFile(filename, (err, result) => {
