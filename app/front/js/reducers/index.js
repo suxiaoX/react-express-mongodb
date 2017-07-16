@@ -6,9 +6,11 @@ import {routerReducer} from 'react-router-redux';
 import {reducer as reduceForm} from 'redux-form';
 
 import aboutState from './about';
+import homeState from './home';
 
 const rootReducer = combineReducers({
   about: aboutState,
+  home: homeState,
   form: reduceForm, //挂载redux-form   如果不挂载会报一堆的错误
   routing: routerReducer
 });
