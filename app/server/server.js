@@ -10,7 +10,7 @@ const WebpackHotMiddleware = require('webpack-hot-middleware');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('../../webpack.dev.config');
-
+const api = require('./api');
 
 const compiler = webpack(config);
 const port = 3333;
@@ -37,6 +37,7 @@ app.use(express.static('dist'));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
 
+app.use('/api', api);
 // Router.route('/',(req, res) => {
 //   res.send('hello world')
 // });
