@@ -31,9 +31,6 @@ compiler.plugin('compilation', function (compilation) {
     cb()
   })
 });
-//连接mongodb
-mongoose.Promise = global.Promise;
-mongoose.createConnection('localhost:27017/leoBlog');
 //文件位置
 app.use(express.static('static'));
 app.use(express.static('dist'));
@@ -57,12 +54,22 @@ app.get('/*', (req, res, next) => {
   })
   // res.sendFile(path.resolve(__dirname + '/../../' + filename));
 });
+//连接mongodb
+mongoose.Promise = global.Promise;
+mongoose.createConnection('mongodb://localhost:27017/leoBlog', (err) => {
+   if (err) {
+     console.log(errr)
+   } else {
+     console.log('数据连接成功');
+     app.listen(port, (err) => {
+       if (err) {
+         console.log(err)
+       } else {
+         console.log(`正在打开http://localhost:${port}...`);
+         open(`http://localhost:${port}`);
+       }
+     })
+   }
+});
 
-app.listen(port, (err) => {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log(`正在打开http://localhost:${port}...`);
-    open(`http://localhost:${port}`);
-  }
-})
+
