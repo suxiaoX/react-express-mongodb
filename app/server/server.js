@@ -19,7 +19,7 @@ const app = express();
 //结合webpack
 app.use(WebpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
-  // quiet: true,
+  quiet: true,
   stats: { colors: true }
 }));
 app.use(WebpackHotMiddleware(compiler, {
@@ -57,7 +57,8 @@ app.get('/*', (req, res, next) => {
 });
 //连接mongodb
 mongoose.Promise = global.Promise;
-mongoose.createConnection('mongodb://localhost:27017/leoBlog', (err) => {
+//使用connect 不要使用createConnection
+mongoose.connect('mongodb://localhost:27017/leoBlog', (err) => {
    if (err) {
      console.log(errr)
    } else {

@@ -3,5 +3,5 @@
  */
 const mongoose = require('mongoose');
 const userSchema = require('../schemas/users');
-
-module.exports = mongoose.model('User', userSchema);
+// console.log(userSchema);
+module.exports = mongoose.model('Users', userSchema);

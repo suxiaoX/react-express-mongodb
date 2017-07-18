@@ -2,8 +2,8 @@
  * Created by suxiao on 2017/7/16.
  */
 const mongoose = require('mongoose');
-
-module.exports = new mongoose.Schema({
+const Schema = mongoose.Schema;
+module.exports = new Schema({
   username: String,
   password: String,
   isAdmin: {
