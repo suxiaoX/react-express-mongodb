@@ -31,6 +31,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "chunk-manifest-webpack-plugin": "^1.0.0",
+    "cookies": "^0.7.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.2.3",
     "css-loader": "^0.26.2",

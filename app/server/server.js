@@ -9,8 +9,11 @@ const WebpackDevMiddleware = require('webpack-dev-middleware');
 const WebpackHotMiddleware = require('webpack-hot-middleware');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const Cookies = require('cookies');
+
 const config = require('../../webpack.dev.config');
 const api = require('./api');
+const Users = require('./model/users');
 
 const compiler = webpack(config);
 const port = 3333;
@@ -25,6 +28,7 @@ app.use(WebpackDevMiddleware(compiler, {
 app.use(WebpackHotMiddleware(compiler, {
   log: () => {}
 }));
+
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
     hotMiddleware.publish({ action: 'reload' });
@@ -36,6 +40,26 @@ app.use(express.static('static'));
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
+//设置cookie
+app.use( (req, res, next) => {
+  req.cookies = new Cookies(req, res);
+  console.log(req.cookies.get('userInfo'))
+  req.userInfo = {};
+  if (req.cookies.get('userInfo')) {
+    try {
+      req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+      //获取当前登录用户的类型，是否是管理员
+      Users.findById(req.userInfo._id).then(function(userInfo) {
+        req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+        next();
+      })
+    }catch(err){
+      console.log(err);
+    }
+  } else {
+    next();
+  }
+})
 
 app.use('/api', api);
 // Router.route('/',(req, res) => {
@@ -43,6 +67,7 @@ app.use('/api', api);
 // });
 //解决子路由刷新无法访问的问题
 app.get('/*', (req, res, next) => {
+  console.log(req.userInfo);
   const filename = path.join(config.output.path, 'index.html')
   console.log(filename);
   compiler.outputFileSystem.readFile(filename, (err, result) => {

@@ -17,7 +17,6 @@ router.use( (req, res, next) => {
 
 //登录
 router.post('/', (req, res, next) => {
-  console.log(req.body);
   try {
     const username = req.body.username;
     const password = req.body.password;
@@ -48,6 +47,10 @@ router.post('/', (req, res, next) => {
             message: '登录成功',
             userInfo: user.username
           }
+          req.cookies.set('userInfo', JSON.stringify({
+            _id: user._id,
+            username: user.username
+          }))
           res.json(responseData);
           return;
         }
