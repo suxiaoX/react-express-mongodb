@@ -12,7 +12,7 @@ const homeState = (state=initialState, action) => {
     case types.HOME_INFO:
       let info = {};
       if (action.info !== undefined) {
-        info = action.homeInfo
+        info = action.info
       }
       return Object.assign({}, state, { ...info });
     default:

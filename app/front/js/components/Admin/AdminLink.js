@@ -4,7 +4,7 @@
 import React from 'react';
 import Partial from '../partial';
 
-export default class BlogLink extends React.Component {
+export default class AdminLink extends React.Component {
   render() {
     return (
       <div className="">

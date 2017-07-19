@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0237ba1-17ca-446a-8b98-1b1035ba98f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/router/index.js" afterPath="$PROJECT_DIR$/app/front/js/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/scss/login.scss" afterPath="$PROJECT_DIR$/app/front/scss/login.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.2017-07-19T13-55-25Z-00000" afterPath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.2017-07-19T13-55-25Z-00000" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.interim" afterPath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.interim" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/actions/index.js" afterPath="$PROJECT_DIR$/app/front/js/actions/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/components/Admin/AdminLink.js" afterPath="$PROJECT_DIR$/app/front/js/components/Admin/AdminLink.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/components/Admin/Users.js" afterPath="$PROJECT_DIR$/app/front/js/components/Admin/Users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/constants/index.js" afterPath="$PROJECT_DIR$/app/front/js/constants/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/home.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/index.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -593,6 +598,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -607,6 +613,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -733,6 +740,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="3" column="49" lean-forward="true" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -776,6 +786,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#29#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
