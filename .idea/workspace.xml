@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0237ba1-17ca-446a-8b98-1b1035ba98f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintrc" afterPath="$PROJECT_DIR$/.eslintrc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/components/partial/index.js" afterPath="$PROJECT_DIR$/app/front/js/components/partial/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/about.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/about.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/home.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/index.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/router/index.js" afterPath="$PROJECT_DIR$/app/front/js/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/api/index.js" afterPath="$PROJECT_DIR$/app/server/api/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/api/register.js" afterPath="$PROJECT_DIR$/app/server/api/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/server.js" afterPath="$PROJECT_DIR$/app/server/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/scss/login.scss" afterPath="$PROJECT_DIR$/app/front/scss/login.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -640,6 +633,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -675,6 +669,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="e#41#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

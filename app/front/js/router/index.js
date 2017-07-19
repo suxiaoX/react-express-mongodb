@@ -13,6 +13,7 @@ import Register from '../components/Register';
 import App from '../containers/App';
 import NotFound from '../components/NotFound'
 import { All, Auto, Mongo, Node, Blog } from '../components/Blog';
+import { Admin, Users } from '../components/Admin'
 
 export default (
     <Route path="/" component={App}>
@@ -28,6 +29,9 @@ export default (
         <Route path="guestbook" component={NotFound} />
         <Route path="sign" component={Login} />
         <Route path="register" component={Register} />
+        <Route path="admin" component={Admin}>
+          <Route path="users" component={Users} />
+        </Route>
         <Route path="404" component={NotFound} />
         <Redirect from="/*" to="/404" />
         {/*
