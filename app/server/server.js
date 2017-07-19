@@ -20,6 +20,24 @@ const port = 3333;
 const app = express();
 // const Router = express.Router();
 //结合webpack
+const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true';
+const entries = Object.keys(config.entry);
+//  添加热加载信息
+entries.forEach((key) => {
+  config.entry[key].push(hotMiddlewareScript);
+})
+//  添加插件信息
+if(config.plugins === undefined) {
+  config.plugins = []
+}
+
+//  添加热加载插件
+config.plugins.push(
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.NoEmitOnErrorsPlugin()
+)
+//将这个添加到webpack配置文件的入口里面 ?reload=true 设置浏览器是否自动刷新；
 app.use(WebpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
   quiet: true,
@@ -29,12 +47,12 @@ app.use(WebpackHotMiddleware(compiler, {
   log: () => {}
 }));
 
-compiler.plugin('compilation', function (compilation) {
-  compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-    hotMiddleware.publish({ action: 'reload' });
-    cb()
-  })
-});
+// compiler.plugin('compilation', function (compilation) {
+//   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
+//     WebpackHotMiddleware.publish({ action: 'reload' });
+//     cb()
+//   })
+// });
 //文件位置
 app.use(express.static('static'));
 app.use(express.static('dist'));
@@ -43,7 +61,7 @@ app.use(bodyParser.json());
 //设置cookie
 app.use( (req, res, next) => {
   req.cookies = new Cookies(req, res);
-  console.log(req.cookies.get('userInfo'))
+  // console.log(req.cookies.get('userInfo'))
   req.userInfo = {};
   if (req.cookies.get('userInfo')) {
     try {
@@ -67,7 +85,7 @@ app.use('/api', api);
 // });
 //解决子路由刷新无法访问的问题
 app.get('/*', (req, res, next) => {
-  console.log(req.userInfo);
+  // console.log(req.userInfo);
   const filename = path.join(config.output.path, 'index.html')
   console.log(filename);
   compiler.outputFileSystem.readFile(filename, (err, result) => {
@@ -85,7 +103,7 @@ mongoose.Promise = global.Promise;
 //使用connect 不要使用createConnection
 mongoose.connect('mongodb://localhost:27017/leoBlog', (err) => {
    if (err) {
-     console.log(errr)
+     console.log(err)
    } else {
      console.log('数据连接成功');
      app.listen(port, (err) => {

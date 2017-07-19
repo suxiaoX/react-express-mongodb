@@ -8,7 +8,7 @@ const initialState = {
   isFetching: true
 };
 
-const  aboutState = (state=initialState, action) => {
+const aboutState = (state=initialState, action) => {
   switch (action) {
     case types.FETCH_USER_INFO:
       let info = {};
@@ -21,4 +21,4 @@ const  aboutState = (state=initialState, action) => {
   }
 };
 
-export default  aboutState
+export default aboutState

@@ -14,7 +14,7 @@ const homeState = (state=initialState, action) => {
       if (action.info !== undefined) {
         info = action.homeInfo
       }
-      return Object.assign({}, state, { ...action.homeInfo });
+      return Object.assign({}, state, { ...info });
     default:
       return state
   }

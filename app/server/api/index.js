@@ -7,7 +7,8 @@ const router = express.Router();
 
 // const router = new Router();
 
-router.use('/login', require('./login'))
-router.use('/register', require('./register'))
+router.use('/login', require('./login'));
+router.use('/register', require('./register'));
+router.use('/admin', require('./admin'));
 
 module.exports = router;

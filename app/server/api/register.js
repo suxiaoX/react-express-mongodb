@@ -9,20 +9,6 @@ let Users = require('../model/users');
 
 //统一返回格式
 
-/*
-测试
-const admin = new Users({
-  username: 'admin',
-  password: '123456'
-})
-admin.save( (err, doc) => {
-  if (err) {
-    console.log('错误是-----' + err + '-------')
-  } else {
-    console.log(doc)
-  }
-});
-*/
 let responseData;
 router.use( (req, res, next) => {
   responseData = {
