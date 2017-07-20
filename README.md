@@ -2,9 +2,9 @@
 > 根据目前个人水平，搭建的一个简易的后台博客系统
 ---
 ### 技术说明
-> 前台使用的技术 *react* *redux* *react-router* 
-> 后台技术 *node* *express* *mongodb*
-> 打包工具 *webpack2*
+> - 前台使用的技术 *react* *redux* *react-router* 
+> - 后台技术 *node* *express* *mongodb*
+> - 打包工具 *webpack2*
 ---
 #### 功能会慢慢的加
 > 目前前台路由搭建完毕，后台路由设计完毕，后台结合webpack启动项目。。。
