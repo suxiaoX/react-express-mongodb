@@ -18,10 +18,10 @@
     
 #### 我是Leo,我为自己带盐
 
-```
-    Hello world
-    QQ: 946732383
-    
-```
+
+>    1. Hello world
+>    2. QQ: 946732383
+>    3. [我的博客](http://www.cnblogs.com/heigehe/ "博客地址")
+
 #### 博客 
-[博客]: http://www.cnblogs.com/heigehe/ "博客地址"
+
