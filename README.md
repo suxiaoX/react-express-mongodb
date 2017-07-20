@@ -21,5 +21,5 @@
 ```
     Hello world
     QQ: 946732383
-    微博:  http://www.cnblogs.com/heigehe/
+    [博客:](http://www.cnblogs.com/heigehe/, '博客地址')
 ```
