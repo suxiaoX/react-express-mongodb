@@ -16,7 +16,7 @@
     - mongod --dbpath /xxx(项目文件目录)/react-express-mongodb/app/server/db/
     - npm start or npm run run
     
-#### 我是Leo,我为自己带盐
+#### 我是小黑哥（ Leo ）,我为自己带盐
 
 
 >    1. Hello world
