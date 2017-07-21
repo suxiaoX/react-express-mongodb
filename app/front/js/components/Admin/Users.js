@@ -20,23 +20,7 @@ export class Users extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props.receiveUsers)
-    // console.log(location.pathname)
     this.props.receiveUsers('/api/admin/users')
-    // fetch('/api/admin/users', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json'
-    //     },
-    //     body: {}
-    //   }
-    // ).then( res => res.json()
-    // ).then( data => {
-    //     console.log(data)
-    // }).cache(err => {
-    //     console.log(err)
-    // })
     /*
     fetch('/api/admin/users',{
       method: 'GET'

@@ -17,7 +17,7 @@ const fetchFailure = (error) => ({
   type: types.FETCH_FAILURE,
   error
 })
-
+// 请求用户信息
 export const receiveUsers = (url) => async (dispath) => {
   try {
     await dispath(fetchRequset())

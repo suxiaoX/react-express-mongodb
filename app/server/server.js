@@ -101,7 +101,7 @@ app.get('/*', (req, res, next) => {
 //连接mongodb
 mongoose.Promise = global.Promise;
 //使用connect 不要使用createConnection
-mongoose.connect('mongodb://localhost:27017/leoBlog', (err) => {
+mongoose.connect('mongodb://localhost:27017/leoBlog', {useMongoClient: true}, (err) => {
    if (err) {
      console.log(err)
    } else {
