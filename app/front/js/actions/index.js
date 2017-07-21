@@ -2,15 +2,15 @@
  * Created by '苏萧' on 2017/7/13.
  */
 import * as types from '../constants';
-import { post } from '../utils/request';
+import { get } from '../utils/request';
 
 const fetchRequset = () => ({
   type: types.FETCH_REQUEST
 })
 
-const fetchSuccess = (data) => ({
+const fetchSuccess = (users) => ({
   type: types.FETCH_SUCCESS,
-  data
+  users
 })
 
 const fetchFailure = (error) => ({
@@ -18,17 +18,13 @@ const fetchFailure = (error) => ({
   error
 })
 
-export const receiveUsers = (url) => (dispath, getState) => {
-  console.log(dispath);
-    // let users = await get(url).then( res => res.json)
-     dispath( fetchRequset() )
-     post(url)
-        .then( res => res.json)
-        .then( data => {
-          console.log(data)
-          dispath( fetchSuccess(data) )
-        })
-        .cache(err => {
-          dispath( fetchFailure(err) )
-        })
-  };
+export const receiveUsers = (url) => async (dispath) => {
+  try {
+    await dispath(fetchRequset())
+    await get(url)
+      .then( response => dispath(fetchSuccess(response)))
+      .cache(err => dispath(fetchFailure(err)))
+  } catch (err) {
+    dispath( fetchFailure(err) )
+  }
+};

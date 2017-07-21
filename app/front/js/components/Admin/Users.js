@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -10,7 +11,7 @@ require('isomorphic-fetch');
 import * as actions from '../../actions'
 @connect(
   state => ({users: state.users}),
-  dispatch => ({...actions})
+  dispatch => bindActionCreators({...actions}, dispatch)
 )
 
 export class Users extends Component {
@@ -21,7 +22,7 @@ export class Users extends Component {
   componentDidMount() {
     // console.log(this.props.receiveUsers)
     // console.log(location.pathname)
-    // this.props.receiveUsers('/api/admin/users')
+    this.props.receiveUsers('/api/admin/users')
     // fetch('/api/admin/users', {
     //     method: 'POST',
     //     headers: {
@@ -36,12 +37,13 @@ export class Users extends Component {
     // }).cache(err => {
     //     console.log(err)
     // })
+    /*
     fetch('/api/admin/users',{
       method: 'GET'
-      // headers: {
-      //   'Content-Type': 'application/json',
-      //   'Accpet': 'application/json'
-      // }
+      headers: {
+        'Content-Type': 'application/json',
+        'Accpet': 'application/json'
+      }
     }).then( (res) => {
       console.log(res)
        return res.json()
@@ -50,6 +52,7 @@ export class Users extends Component {
     }).catch(e => {
       console.log(e)
     })
+    */
   }
 
   render() {

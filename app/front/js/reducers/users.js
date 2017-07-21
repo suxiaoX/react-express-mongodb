@@ -11,7 +11,7 @@ const usersState = (state=initialState, action) => {
   switch (action.type) {
     case types.FETCH_REQUEST:
       return Object({}, state, {isFetching: true})
-    case types.FETCH_USERS:
+    case types.FETCH_SUCCESS:
       let info = {};
       if (action.users !== undefined) {
         info = action.users

@@ -5,11 +5,12 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 // baseUrl 由 webpack 根据 环境变量 更换
-export const host = baseUrl; // 当前服务器地址
+// export const host = baseUrl; // 当前服务器地址
+const host = ''; // 当前服务器地址
 console.log(baseUrl);
 
 // 封装fetch 代替 ajax 请求数据
-export default function request(method, url, body) {
+const request = (method, url, body) => {
 	method = method.toUpperCase();
 	if (method === 'GET') {
 		body = undefined;
@@ -27,7 +28,7 @@ export default function request(method, url, body) {
 	}).then((res) => {
 		return res.json();
 	}).then(data => {
-		console.log(data)
+		// console.log(data)
 		return data
 	});
 }
