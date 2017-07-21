@@ -4,12 +4,14 @@
     <list default="true" id="d0237ba1-17ca-446a-8b98-1b1035ba98f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.2017-07-19T13-55-25Z-00000" afterPath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.2017-07-19T13-55-25Z-00000" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.interim" afterPath="$PROJECT_DIR$/app/server/db/diagnostic.data/metrics.interim" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/actions/index.js" afterPath="$PROJECT_DIR$/app/front/js/actions/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/components/Admin/AdminLink.js" afterPath="$PROJECT_DIR$/app/front/js/components/Admin/AdminLink.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/components/Admin/Users.js" afterPath="$PROJECT_DIR$/app/front/js/components/Admin/Users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/constants/index.js" afterPath="$PROJECT_DIR$/app/front/js/constants/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/home.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/index.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/components/Login/index.js" afterPath="$PROJECT_DIR$/app/front/js/components/Login/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/containers/App.js" afterPath="$PROJECT_DIR$/app/front/js/containers/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/front/js/reducers/users.js" afterPath="$PROJECT_DIR$/app/front/js/reducers/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/api/admin.js" afterPath="$PROJECT_DIR$/app/server/api/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/tpl.html" afterPath="$PROJECT_DIR$/static/tpl.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,7 +61,7 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
+            <state relative-caret-position="915">
               <caret line="63" column="16" lean-forward="false" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
@@ -234,8 +236,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="height" value="730" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -280,6 +283,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-express-mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-express-mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-express-mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-express-mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-express-mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="react-express-mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -293,7 +350,6 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -403,18 +459,17 @@
       <workItem from="1499853466233" duration="1504000" />
       <workItem from="1499909269330" duration="612000" />
       <workItem from="1499909893958" duration="39469000" />
-      <workItem from="1500472626133" duration="594000" />
+      <workItem from="1500472626133" duration="602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74655000" />
+    <option name="totallyTimeSpent" value="74663000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="730" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -873,7 +928,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/server/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="915">
           <caret line="63" column="16" lean-forward="false" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />

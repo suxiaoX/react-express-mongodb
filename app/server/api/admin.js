@@ -20,17 +20,30 @@ router.post('/', (req, res, next) => {
   //   status: '0',
   //   message: 'admin'
   // })
+  next();
 })
 
-router.post('/users', (req, res, next) => {
-  Users.find({}, (err, users) => {
-    if (err) {
-      console.log(err)
-    } else {
-      res.send('users')
-      console.log(users);
-    }
-  })
+router.get('/users', (req, res, next) => {
+  try {
+    Users.find({}, (err, users) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.json(users);
+        // res.send('users')
+        console.log('-------users----------');
+        console.log(users);
+      }
+      //res.end();
+      // next();
+    })
+  } catch (err) {
+    console.log('-------users2222----------');
+    next(err)
+  }
+
+
+
 })
 
 module.exports = router;
