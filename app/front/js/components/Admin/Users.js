@@ -4,9 +4,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 import * as actions from '../../actions'
 @connect(
-  state => ({home: state.users}),
+  state => ({users: state.users}),
   dispatch => ({...actions})
 )
 
@@ -16,9 +19,37 @@ export class Users extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.receiveUsers)
-    console.log(location.pathname)
-    this.props.receiveUsers(location.pathname)
+    // console.log(this.props.receiveUsers)
+    // console.log(location.pathname)
+    // this.props.receiveUsers('/api/admin/users')
+    // fetch('/api/admin/users', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json'
+    //     },
+    //     body: {}
+    //   }
+    // ).then( res => res.json()
+    // ).then( data => {
+    //     console.log(data)
+    // }).cache(err => {
+    //     console.log(err)
+    // })
+    fetch('/api/admin/users',{
+      method: 'GET'
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   'Accpet': 'application/json'
+      // }
+    }).then( (res) => {
+      console.log(res)
+       return res.json()
+    }).then( (data) => {
+      console.log(data)
+    }).catch(e => {
+      console.log(e)
+    })
   }
 
   render() {

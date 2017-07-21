@@ -3,17 +3,20 @@
  */
 import * as types from '../constants';
 const initialState = {
-  users: []
+  users: [],
+  isFetching: true
 }
 
 const usersState = (state=initialState, action) => {
   switch (action.type) {
+    case types.FETCH_REQUEST:
+      return Object({}, state, {isFetching: true})
     case types.FETCH_USERS:
       let info = {};
       if (action.users !== undefined) {
         info = action.users
       }
-      return Object.assign({}, state, { ...info });
+      return Object.assign({}, state, { users: info, isFetching: false });
     default:
       return state
   }

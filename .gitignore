@@ -5,3 +5,5 @@
 */.idea/
 .idea/
 /node_modules/
+/app/js/
+/app/scss/

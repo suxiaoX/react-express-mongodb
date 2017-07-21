@@ -15,8 +15,8 @@ import '../../scss/pubilc.scss'
 
 class App extends React.Component {
   render() {
-    console.log(this.props.about);
-    console.log(this.props.receiveUserInfo);
+    // console.log(this.props.about);
+    // console.log(this.props.receiveUserInfo);
     return (
       <div className="wraper">
         <Header />

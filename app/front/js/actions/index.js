@@ -18,9 +18,8 @@ const fetchFailure = (error) => ({
   error
 })
 
-export const receiveUsers = (url) => {
-  console.log(url)
-  return (dispath) => {
+export const receiveUsers = (url) => (dispath, getState) => {
+  console.log(dispath);
     // let users = await get(url).then( res => res.json)
      dispath( fetchRequset() )
      post(url)
@@ -32,5 +31,4 @@ export const receiveUsers = (url) => {
         .cache(err => {
           dispath( fetchFailure(err) )
         })
-  }
-};
+  };
