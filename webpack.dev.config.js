@@ -19,7 +19,7 @@ module.exports = webpackMerge(baseConfig(), {
   entry: {
     app: [// 热加载配置
       "react-hot-loader/patch",
-      "webpack-dev-server/client?http://" + ip + ":8099",
+      "webpack-dev-server/client?http://" + ip + ":8099/",
       "webpack/hot/only-dev-server",
       "./app/front/js/index.js"
     ],
@@ -89,6 +89,7 @@ module.exports = webpackMerge(baseConfig(), {
     historyApiFallback: true,// 设置可以从任意URL 访问
     clientLogLevel: "none",
     host: ip,
+    // host: 'localhost',
     port: 8099,
     open: true,// 服务开启的时候打开页面
     hot: true,// 开启热替换
@@ -104,7 +105,7 @@ module.exports = webpackMerge(baseConfig(), {
     //解决跨域
     proxy: {
       "/api/*": {
-        target: "http://xxx.xxx.com",
+        target: "http://localhost:3333",
         secure: false, //接受运行在 https 上的服务
         changeOrigin: true
       }
