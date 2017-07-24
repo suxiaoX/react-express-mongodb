@@ -2,7 +2,9 @@
  * Created by suxiao on 2017/7/19.
  */
 import React, { Component } from 'react';
+
 import AdminLink from './AdminLink'
+import '../../../scss/admin.scss'
 
 export class Admin extends Component {
   constructor (props) {
@@ -11,7 +13,7 @@ export class Admin extends Component {
 
   render() {
     return (
-      <div>
+      <div className="admin">
         <AdminLink />
         <div>
           {this.props.children}

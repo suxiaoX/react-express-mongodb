@@ -21,22 +21,6 @@ export class Users extends Component {
 
   componentDidMount() {
     this.props.receiveUsers('/api/admin/users')
-    /*
-    fetch('/api/admin/users',{
-      method: 'GET'
-      headers: {
-        'Content-Type': 'application/json',
-        'Accpet': 'application/json'
-      }
-    }).then( (res) => {
-      console.log(res)
-       return res.json()
-    }).then( (data) => {
-      console.log(data)
-    }).catch(e => {
-      console.log(e)
-    })
-    */
   }
 
   render() {

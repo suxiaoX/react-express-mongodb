@@ -9,7 +9,7 @@ import 'antd/dist/antd.less';
 import '../../scss/app.scss';
 import '../../scss/pubilc.scss'
 
-import { Button } from 'antd';
+// import { Button } from 'antd';
 
 @connect(
   state => ({about: state.about}),
@@ -23,7 +23,6 @@ class App extends React.Component {
     return (
       <div className="wraper">
         <Header />
-        <Button type="primary">按钮</Button>
         <div className="main clearfix">
           {this.props.children}
         </div>

@@ -4,3 +4,4 @@
 
 export { Users } from './Users'
 export { Admin } from './Admin'
+export { AdminHome } from './AdminHome'
