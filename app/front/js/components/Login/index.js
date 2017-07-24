@@ -9,7 +9,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <div className="login">
-        <form action="/api/admin/users" method="post">
+        <form action="/api/admin/login" method="post">
           <div className="input-wrapper">
             <label htmlFor="username">姓名：</label>
             <input type="text" id="username" name="username" placeholder="请输入用户名"/>

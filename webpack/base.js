@@ -56,6 +56,37 @@ module.exports = function () {
           include: APP_PATH,
           loader: "babel-loader"
         },
+        {
+          test: /\.less$/,
+          use: [
+            require.resolve('style-loader'),
+            require.resolve('css-loader'),
+            {
+              loader: require.resolve('postcss-loader'),
+              options: {
+                ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                plugins: () => [
+                  require('postcss-flexbugs-fixes'),
+                  autoprefixer({
+                    browsers: [
+                      '>1%',
+                      'last 4 versions',
+                      'Firefox ESR',
+                      'not ie < 9', // React doesn't support IE8 anyway
+                    ],
+                    flexbox: 'no-2009',
+                  }),
+                ],
+              },
+            },
+            {
+              loader: require.resolve('less-loader'),
+              options: {
+                modifyVars: { "@primary-color": "#1DA57A" },
+              },
+            },
+          ],
+        },
         { // 向应用特定文件中注入变量，应用中可以直接使用 baseUrl
           test: require.resolve(defPath.REQUEST_PATH),
           loader: "imports-loader?baseUrl=>" + JSON.stringify( api[process.env.NODE_ENV || "development"] )

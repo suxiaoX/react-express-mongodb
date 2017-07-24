@@ -40,15 +40,6 @@ module.exports = webpackMerge(baseConfig(), {
           "style-loader", "css-loader", "postcss-loader", "sass-loader" + config.sassLoaderSuffix
         ]
       },
-      /*
-      {
-        test: /\.(less|css)$/,
-        include: APP_PATH, //  必须匹配选项
-        use: [ // 2.x 版本改为 use 代替 loaders，必须加 -loader
-          "style-loader", "css-loader", "postcss-loader", "less-loader" + config.sassLoaderSuffix
-        ]
-      },
-      */
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
         include: APP_PATH,
@@ -105,7 +96,7 @@ module.exports = webpackMerge(baseConfig(), {
     //解决跨域
     proxy: {
       "/api/*": {
-        target: "http://localhost:3333",
+        target: `http://${ip}:3333`,
         secure: false, //接受运行在 https 上的服务
         changeOrigin: true
       }

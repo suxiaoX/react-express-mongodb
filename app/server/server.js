@@ -10,6 +10,7 @@ const WebpackHotMiddleware = require('webpack-hot-middleware');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Cookies = require('cookies');
+const cors = require('cors');
 
 const config = require('../../webpack.dev.config');
 const api = require('./api');
@@ -20,6 +21,7 @@ const port = 3333;
 const app = express();
 // const Router = express.Router();
 //结合webpack
+//将这个添加到webpack配置文件的入口里面 ?reload=true 设置浏览器是否自动刷新；
 const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true';
 const entries = Object.keys(config.entry);
 //  添加热加载信息
@@ -37,7 +39,6 @@ config.plugins.push(
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin()
 )
-//将这个添加到webpack配置文件的入口里面 ?reload=true 设置浏览器是否自动刷新；
 app.use(WebpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
   quiet: true,
@@ -47,17 +48,27 @@ app.use(WebpackHotMiddleware(compiler, {
   log: () => {}
 }));
 
-// compiler.plugin('compilation', function (compilation) {
-//   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-//     WebpackHotMiddleware.publish({ action: 'reload' });
-//     cb()
-//   })
-// });
 //文件位置
 app.use(express.static('static'));
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
+//设置跨域访问
+app.use(cors());
+/*
+app.all('*', (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By",' 3.2.1')
+  res.header("Content-Type", "application/json;charset=utf-8");
+  if ( req.method === 'OPTIONS' ) {
+    res.send(200);
+  } else {
+    next();
+  }
+});
+*/
 //设置cookie
 app.use( (req, res, next) => {
   req.cookies = new Cookies(req, res);
