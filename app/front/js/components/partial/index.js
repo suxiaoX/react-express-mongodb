@@ -9,7 +9,9 @@ export default class Partial extends React.Component {
   render() {
     return (
       <div>
-        <Icon type={this.props.type} />
+        {
+          this.props.type && <Icon type={this.props.type} />
+        }
         <Link {...this.props} activeClassName="active" />
       </div>
     );
