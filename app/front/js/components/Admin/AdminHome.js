@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 
-export class Admin extends Component {
+export class AdminHome extends Component {
   constructor (props) {
     super(props)
   }
