@@ -26,7 +26,7 @@ class LoginModel extends React.Component {
 
     return (
       <div >
-        <Form onSubmit={this.handleSubmit.bind(this)} className="login-form" style={{width: '300px', margin: '80px auto'}}>
+        <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '300px', margin: '80px auto'}}>
           <FormItem>
             {getFieldDecorator('username', {
               rules: [{ required: true, message: 'Please input your username!' }]

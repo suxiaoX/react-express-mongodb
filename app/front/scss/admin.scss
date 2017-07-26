@@ -16,3 +16,10 @@
 .active {
   color: #ff6600;
 }
+table {
+  border: none !important;
+}
+th, td {
+  text-align: center !important;
+  border-right: none !important;
+}
