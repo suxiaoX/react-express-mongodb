@@ -24,7 +24,7 @@ class RegistrationForm extends React.Component {
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
+      callback('两次密码不一致');
     } else {
       callback();
     }
@@ -69,7 +69,7 @@ class RegistrationForm extends React.Component {
           label="用户名"
           hasFeedback
         >
-          {getFieldDecorator('userName', {
+          {getFieldDecorator('username', {
             rules: [{ required: true, message: '请正确输入用户名' }]
           })(
             <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} />
@@ -105,7 +105,7 @@ class RegistrationForm extends React.Component {
             <Input type="password" onBlur={this.handleConfirmBlur} prefix={<Icon type="lock" style={{ fontSize: 13 }} />} />
           )}
         </FormItem>
-        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
+        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8, marginTop: -15 }}>
           {getFieldDecorator('agreement', {
             valuePropName: 'checked'
           })(
