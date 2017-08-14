@@ -16,9 +16,11 @@ export class Home extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+      } else {
+        console.log(err);
       }
     });
   }
@@ -40,7 +42,7 @@ export class Home extends Component {
             label="文章分类"
             {...formItemLayout}
           >
-            {getFieldDecorator('gender', {
+            {getFieldDecorator('sort', {
               rules: [{ required: true, message: '请选择文章分类' }]
             })(
               <Select
@@ -67,10 +69,14 @@ export class Home extends Component {
             label="内容"
             {...formItemLayout}
           >
+          {getFieldDecorator('content', {
+            rules: [{ required: true, message: '请输入文章内容' }]
+          })(
             <TextArea placeholder="编辑文章内容" autosize={{ minRows: 4, maxRows: 8 }} />
+          )}
           </FormItem>
           <FormItem {...buttonItemLayout}>
-            <Button type="primary">提交</Button>
+            <Button type="primary" onClick={this.handleSubmit}>提交</Button>
           </FormItem>
         </Form>
       </div>
