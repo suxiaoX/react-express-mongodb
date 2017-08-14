@@ -1,4 +1,10 @@
 /*
+ * @Author: leo 
+ * @Date: 2017-08-13 14:07:50 
+ * @Last Modified by: leo
+ * @Last Modified time: 2017-08-13 14:08:29
+ */
+/*
 	封装请求
 */
 require('es6-promise').polyfill();

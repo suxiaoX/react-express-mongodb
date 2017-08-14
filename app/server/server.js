@@ -14,14 +14,14 @@ const cors = require('cors');
 
 const config = require('../../webpack.dev.config');
 const api = require('./api');
-const Users = require('./model/users');
+// const Users = require('./model/users');
 
 const compiler = webpack(config);
 const port = 3333;
 const app = express();
 // const Router = express.Router();
-//结合webpack
-//将这个添加到webpack配置文件的入口里面 ?reload=true 设置浏览器是否自动刷新；
+// 结合webpack
+// 将这个添加到webpack配置文件的入口里面 ?reload=true 设置浏览器是否自动刷新；
 const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true';
 const entries = Object.keys(config.entry);
 //  添加热加载信息
@@ -48,12 +48,12 @@ app.use(WebpackHotMiddleware(compiler, {
   log: () => {}
 }));
 
-//文件位置
+// 文件位置
 app.use(express.static('static'));
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
-//设置跨域访问
+// 设置跨域访问
 app.use(cors());
 /*
 app.all('*', (req, res, next) => {
@@ -69,7 +69,7 @@ app.all('*', (req, res, next) => {
   }
 });
 */
-//设置cookie
+// 设置cookie
 app.use( (req, res, next) => {
   req.cookies = new Cookies(req, res);
   // console.log(req.cookies.get('userInfo'))
@@ -77,7 +77,7 @@ app.use( (req, res, next) => {
   if (req.cookies.get('userInfo')) {
     try {
       req.userInfo = JSON.parse(req.cookies.get('userInfo'));
-      //获取当前登录用户的类型，是否是管理员
+      // 获取当前登录用户的类型，是否是管理员
       // Users.findById(req.userInfo._id).then(function(userInfo) {
       //   req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
       //   next();
@@ -94,7 +94,7 @@ app.use('/api', api);
 // Router.route('/',(req, res) => {
 //   res.send('hello world')
 // });
-//解决子路由刷新无法访问的问题
+// 解决子路由刷新无法访问的问题
 app.get('/*', (req, res, next) => {
   // console.log(req.userInfo);
   const filename = path.join(config.output.path, 'index.html')
@@ -109,9 +109,9 @@ app.get('/*', (req, res, next) => {
   })
   // res.sendFile(path.resolve(__dirname + '/../../' + filename));
 });
-//连接mongodb
+// 连接mongodb
 mongoose.Promise = global.Promise;
-//使用connect 不要使用createConnection
+// 使用connect 不要使用createConnection
 mongoose.connect('mongodb://localhost:27017/leoBlog', {useMongoClient: true}, (err) => {
    if (err) {
      console.log(err)

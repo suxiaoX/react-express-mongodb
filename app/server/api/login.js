@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 const Users = require('../model/users');
-//统一返回格式
+// 统一返回格式
 let responseData;
 router.use( (req, res, next) => {
   responseData = {
@@ -15,8 +15,9 @@ router.use( (req, res, next) => {
   next();
 })
 
-//登录
+// 登录
 router.post('/', (req, res, next) => {
+  console.log(req.body);
   try {
     const username = req.body.username;
     const password = req.body.password;

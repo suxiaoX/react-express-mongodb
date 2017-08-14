@@ -1,0 +1,12 @@
+/*
+ * @Author: leo 
+ * @Date: 2017-08-14 10:14:53 
+ * @Last Modified by: leo
+ * @Last Modified time: 2017-08-14 10:15:40
+ */
+ {
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowJs": true
+    }
+}

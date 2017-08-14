@@ -5,19 +5,27 @@ import React from 'react';
 import '../../../scss/login.scss';
 // import Partial from '../partial';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { login } from '../../actions/users';
 const FormItem = Form.Item;
 
+@connect(
+  state => ({userInfo: state.userInfo}),
+  dispatch => bindActionCreators({login}, dispatch)
+)
 class LoginModel extends React.Component {
   componentDidMount() {
     // To disabled submit button at the beginning.
     // this.props.form.validateFields();
+    login('/api/login', {username: 'admin', password: '123456'})
   }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        this.props.login('/api/login', values);
       }
     });
   }
