@@ -17,6 +17,7 @@ export default class AdminLink extends React.Component {
             <ul>
               <li><Partial to="/admin" onlyActiveOnIndex={true}>后台首页</Partial></li>
               <li><Partial to="/admin/users">用户管理</Partial></li>
+              <li><Partial to="/admin/article">文章管理</Partial></li>
             </ul>
           </nav>
         </Col>
