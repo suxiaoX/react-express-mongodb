@@ -20,10 +20,10 @@ import * as actions from '../../actions'
 export class Users extends Component {
 
   static propTypes = {
-    users: PropTypes.array.isRequired,
+    users: PropTypes.object.isRequired,
     receiveUsers: PropTypes.func
   }
-  
+
   static defalutProps = {
     users: []
   }
@@ -33,7 +33,7 @@ export class Users extends Component {
   }
 
   componentDidMount() {
-    this.props.receiveUsers('/api/admin/users')
+    this.props.receiveUsers('/api/admin/users');
   }
 
   render() {
@@ -54,11 +54,12 @@ export class Users extends Component {
           </span>
       }
     ];
-    if (!isFetching) {
+    if (!isFetching && users.length>0) {
+      console.log(users);
       for (let i=0; i<users.length; i++) {
         Object.keys(users[i]).forEach(key => {
           if (key !== 'admin') {
-            users[i].admin = users.isAdmin ? '是' : '否';
+            users[i].admin = users[i].isAdmin ? '是' : '否';
           }
         });
       }
@@ -66,7 +67,7 @@ export class Users extends Component {
     return (
       <div>
         {
-          !isFetching ? <Table columns={columns} dataSource={users} rowKey={users => users._id} style={{textAlign: 'center'}} bordered /> : null
+          (!isFetching && users.length>0) && <Table columns={columns} dataSource={users} rowKey={users => users._id} style={{textAlign: 'center'}} bordered />
         }
       </div>
     )

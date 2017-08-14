@@ -6,8 +6,17 @@ import { Form, Input, Button, Select } from 'antd';
 const FormItem = Form.Item;
 const { Option } = Select;
 const { TextArea } = Input;
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export class Home extends Component {
+// const { ColumnGroup } = Table;
+
+import * as actions from '../../actions/articles'
+@connect(
+  state => ({articles: state.articles}),
+  dispatch => bindActionCreators({...actions}, dispatch)
+)
+class Home extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,6 +28,7 @@ export class Home extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        this.props.addArticle('/admin/article/add', values);
       } else {
         console.log(err);
       }

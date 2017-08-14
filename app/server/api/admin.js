@@ -5,8 +5,9 @@ const express = require('express');
 const router = express.Router();
 
 const Users = require('../model/users');
+const Articles = require('../model/articles');
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
   console.log(req.body);
   Users.find({}, (err, users) => {
     if (err) {
@@ -23,7 +24,7 @@ router.post('/', (req, res, next) => {
   next();
 })
 
-router.get('/users', (req, res, next) => {
+router.get('/users', async (req, res, next) => {
   try {
     Users.find({}, (err, users) => {
       if (err) {
@@ -34,7 +35,7 @@ router.get('/users', (req, res, next) => {
         console.log('-------users----------');
         console.log(users);
       }
-      //res.end();
+      // res.end();
       // next();
     })
   } catch (err) {
@@ -42,8 +43,68 @@ router.get('/users', (req, res, next) => {
     next(err)
   }
 
+})
+// 获取文章
+router.get('/article', async (req, res, next) => {
+  try {
+    Articles.find({}, (error, article) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log(article);
+      }
+    })
+  } catch(err) {
+    next(err);
+  }
+})
+// 新增文章
+router.post('/article/add', async (req, res, next) => {
+  console.log(req.body);
+  console.log('-----------article-----------')
+  try {
+    Articles.find({}, (error, article) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log(article);
+      }
+    })
+  } catch(err) {
+    next(err);
+  }
+})
+// 更新文章
+router.put('/article/update/:id', async (req, res, next) => {
+  try {
+    Articles.findOneAndUpdate({_id: req.params.id}, req.body, (error, article) => {
+      if (error) {
+        console.log(error)
+      } else {
+        res.json(article);
+        console.log(article);
+      }
+    })
+  } catch(err) {
+    next(err);
+  }
+})
 
+// 删除文章
 
+router.post('/article/delete/:id', async (req, res, next) => {
+  try {
+    Articles.findOneAndRemove({_id: req.params.id}, req.body, (error, article) => {
+      if (error) {
+        console.log(error)
+      } else {
+        res.json(article);
+        console.log(article);
+      }
+    })
+  } catch(err) {
+    next(err);
+  }
 })
 
 module.exports = router;

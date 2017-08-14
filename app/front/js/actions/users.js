@@ -19,20 +19,20 @@ const loginFailure = (error) => ({
   error
 })
 // 请求register, login
-export const userFetch = (url, params, redirectUrl) => async (dispath) => {
+export const userFetch = (url, params, redirectUrl) => async (dispatch) => {
   try {
-    await dispath(loginRequset())
+    await dispatch(loginRequset())
     await post(url, params)
       .then( response => {
         console.log(response);
-        dispath(loginSuccess(response));
+        dispatch(loginSuccess(response));
         if (response.status ==='01') {
           browserHistory.push(redirectUrl);
         }
       })
-      .cache(err => dispath(loginFailure(err)))
+      .cache(err => dispatch(loginFailure(err)))
   } catch (err) {
-    dispath( loginFailure(err) )
+    dispatch( loginFailure(err) )
   }
 };
 

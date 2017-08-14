@@ -9,12 +9,14 @@ import aboutState from './about';
 import homeState from './home';
 import usersState from './users';
 import userInfo from './userInfo';
+import articlesState from './articles';
 
 const rootReducer = combineReducers({
   about: aboutState,
   home: homeState,
   users: usersState,
   userInfo: userInfo,
+  articles: articlesState,
   form: reduceForm,
   // 挂载redux-form 如果不挂载会报一堆的错误
   routing: routerReducer
