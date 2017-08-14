@@ -18,13 +18,13 @@ const fetchFailure = (error) => ({
   error
 })
 // 请求用户信息
-export const receiveUsers = (url) => async (dispath) => {
+export const receiveUsers = (url) => async (dispatch) => {
   try {
-    await dispath(fetchRequset())
+    await dispatch(fetchRequset())
     await get(url)
-      .then( response => dispath(fetchSuccess(response)))
-      .cache(err => dispath(fetchFailure(err)))
+      .then( response => dispatch(fetchSuccess(response.message)))
+      .cache(err => dispatch(fetchFailure(err)))
   } catch (err) {
-    dispath( fetchFailure(err) )
+    dispatch( fetchFailure(err) )
   }
 };

@@ -7,6 +7,16 @@ const router = express.Router();
 const Users = require('../model/users');
 const Articles = require('../model/articles');
 
+let responseData;
+
+router.use( (req, res, next) => {
+  responseData = {
+    status: '01',
+    message: ''
+  }
+  next();
+});
+
 router.post('/', async (req, res, next) => {
   console.log(req.body);
   Users.find({}, (err, users) => {
@@ -30,7 +40,8 @@ router.get('/users', async (req, res, next) => {
       if (err) {
         console.log(err)
       } else {
-        res.json(users);
+        responseData.message = users;
+        res.json(responseData);
         // res.send('users')
         console.log('-------users----------');
         console.log(users);
@@ -51,7 +62,11 @@ router.get('/article', async (req, res, next) => {
       if (error) {
         console.log(error)
       } else {
+        responseData.message = article;
+        res.json(responseData);
+        console.log('-----------article-----------');
         console.log(article);
+        console.log('-----------article-----------');
       }
     })
   } catch(err) {
@@ -72,10 +87,11 @@ router.post('/article/add', async (req, res, next) => {
         if (article.length === 0) {
           newArtilce.save().then( ret => {
             console.log(ret);
-            res.json(ret);
+            responseData.message = ret;
+            res.json(responseData);
           }, error => {
-            console.log(error);
-            res.json(error)
+            responseData.message = error;
+            res.json(responseData)
           })
         }
       }

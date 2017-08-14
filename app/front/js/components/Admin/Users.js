@@ -24,10 +24,6 @@ export class Users extends Component {
     receiveUsers: PropTypes.func
   }
 
-  static defalutProps = {
-    users: []
-  }
-
   constructor (props) {
     super(props)
   }
@@ -54,7 +50,7 @@ export class Users extends Component {
           </span>
       }
     ];
-    if (!isFetching && users.length>0) {
+    if (!isFetching && users) {
       console.log(users);
       for (let i=0; i<users.length; i++) {
         Object.keys(users[i]).forEach(key => {
@@ -67,7 +63,7 @@ export class Users extends Component {
     return (
       <div>
         {
-          (!isFetching && users.length>0) && <Table columns={columns} dataSource={users} rowKey={users => users._id} style={{textAlign: 'center'}} bordered />
+          (!isFetching && users) && <Table columns={columns} dataSource={users} rowKey={users => users._id} style={{textAlign: 'center'}} bordered />
         }
       </div>
     )

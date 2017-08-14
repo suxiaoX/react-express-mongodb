@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 11:38:37 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-14 17:09:50
+ * @Last Modified time: 2017-08-14 22:12:59
  */
 
 import React, { Component, PropTypes } from 'react';
@@ -10,14 +10,11 @@ import { Table } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
-
 // const { ColumnGroup } = Table;
 
-import * as actions from '../../actions'
+import * as actions from '../../actions/articles'
 @connect(
-  state => ({users: state.users}),
+  state => ({articles: state.articles}),
   dispatch => bindActionCreators({...actions}, dispatch)
 )
 
@@ -27,20 +24,25 @@ export class Article extends Component {
   }
 
   static propTypes = {
-    receiveUsers: PropTypes.func
+    getArticles: PropTypes.func,
+    articles: PropTypes.array.isRequired
   }
 
   componentDidMount() {
-    this.props.receiveUsers('/api/admin/users')
+    this.props.getArticles('/api/admin/article');
   }
 
   render() {
-    const { isFetching, users } = this.props.users;
+    const { isFetching, articles } = this.props.articles;
     const columns = [
-      { title: '用户ID', dataIndex: '_id', key: '_id' },
-      { title: '用户名', dataIndex: 'username', key: 'username' },
-      { title: '密码', dataIndex: 'password', key: 'password' },
-      { title: '是否是管理员', dataIndex: 'admin', key: 'admin' },
+      { title: '文章ID', dataIndex: '_id', key: '_id' },
+      { title: '文章分类', dataIndex: 'sort', key: 'sort' },
+      { title: '文章名称', dataIndex: 'title', key: 'title' },
+      { title: '文章内容', dataIndex: 'content', key: 'content' },
+      { title: '作者', dataIndex: 'author', key: 'author' },
+      { title: '创建时间', dataIndex: 'createDate', key: 'createDate' },
+      { title: '修改时间', dataIndex: 'updateDate', key: 'updateDate' },
+      
       { title: '操作',
         dataIndex: '',
         key: 'x',
@@ -52,19 +54,10 @@ export class Article extends Component {
           </span>
       }
     ];
-    if (!isFetching) {
-      for (let i=0; i<users.length; i++) {
-        Object.keys(users[i]).forEach(key => {
-          if (key !== 'admin') {
-            users[i].admin = users.isAdmin ? '是' : '否';
-          }
-        });
-      }
-    }
     return (
       <div>
         {
-          !isFetching ? <Table columns={columns} dataSource={users} rowKey={users => users._id} style={{textAlign: 'center'}} bordered /> : null
+          !isFetching ? <Table columns={columns} dataSource={articles} rowKey={users => users._id} style={{textAlign: 'center'}} bordered /> : null
         }
       </div>
     )
