@@ -7,25 +7,24 @@ import '../../../scss/login.scss';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { login } from '../../actions/users';
+import { userFetch } from '../../actions/users';
 const FormItem = Form.Item;
 
 @connect(
   state => ({userInfo: state.userInfo}),
-  dispatch => bindActionCreators({login}, dispatch)
+  dispatch => bindActionCreators({userFetch}, dispatch)
 )
 class LoginModel extends React.Component {
   componentDidMount() {
     // To disabled submit button at the beginning.
     // this.props.form.validateFields();
-    login('/api/login', {username: 'admin', password: '123456'})
   }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.props.login('/api/login', values);
+        this.props.userFetch('/api/login', values, '/home');
       }
     });
   }
@@ -63,27 +62,6 @@ class LoginModel extends React.Component {
             </Button>
             <a href="register">马上注册</a>
           </FormItem>
-          {/*
-          <Partial to="register">注册</Partial>
-          */}
-        {/*
-         <div className="login">
-         <form action="/api/admin/login" method="post">
-         <div className="input-wrapper">
-         <label htmlFor="username">姓名：</label>
-         <input type="text" id="username" name="username" placeholder="请输入用户名"/>
-         </div>
-         <div className="input-wrapper" >
-         <label htmlFor="password">密码：</label>
-         <input type="password" id="password" name="password" placeholder="请输入密码"/>
-         </div>
-         <div className="input-wrapper">
-         <input type="submit" value="登录"/>
-         </div>
-         </form>
-         <Partial to="register">注册</Partial>
-         </div>
-         */}
         </Form>
       </div>
     );

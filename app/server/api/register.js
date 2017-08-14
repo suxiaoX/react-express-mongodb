@@ -7,7 +7,7 @@ const router = express.Router();
 
 let Users = require('../model/users');
 
-//统一返回格式
+// 统一返回格式
 
 let responseData;
 router.use( (req, res, next) => {
@@ -19,7 +19,7 @@ router.use( (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-
+  console.log(req.body);
   try {
     const username = req.body.username;
     const password = req.body.password;
@@ -31,15 +31,15 @@ router.post('/', (req, res, next) => {
       }
       res.json(responseData);
       return;
-    };
-    //密码不能为空
+    }
+    // 密码不能为空
     if (password === '') {
       responseData.status = '03';
       responseData.message = '请设置密码';
       res.json(responseData);
       return;
     }
-    //两次输入的密码必须一致
+    // 两次输入的密码必须一致
     if (password !== repassword) {
       responseData.status = '04';
       responseData.message = '两次输入的密码不一致';

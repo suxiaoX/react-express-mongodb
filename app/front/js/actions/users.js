@@ -18,15 +18,16 @@ const loginFailure = (error) => ({
   type: types.FETCH_FAILURE,
   error
 })
-// 请求登录
-export const login = (url, params) => async (dispath) => {
+// 请求register, login
+export const userFetch = (url, params, redirectUrl) => async (dispath) => {
   try {
     await dispath(loginRequset())
     await post(url, params)
       .then( response => {
+        console.log(response);
         dispath(loginSuccess(response));
         if (response.status ==='01') {
-          browserHistory.push('/home');
+          browserHistory.push(redirectUrl);
         }
       })
       .cache(err => dispath(loginFailure(err)))
@@ -34,3 +35,5 @@ export const login = (url, params) => async (dispath) => {
     dispath( loginFailure(err) )
   }
 };
+
+

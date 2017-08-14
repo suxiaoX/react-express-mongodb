@@ -4,7 +4,15 @@
 import React from 'react';
 import '../../../scss/login.scss';
 import { Form, Input, Icon, Checkbox, Button } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { userFetch } from '../../actions/users';
 const FormItem = Form.Item;
+
+@connect(
+  state => ({userInfo: state.userInfo}),
+  dispatch => bindActionCreators({userFetch}, dispatch)
+)
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false
@@ -14,6 +22,7 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        this.props.userFetch('/api/register', values, '/sign');
       }
     });
   }
@@ -32,7 +41,7 @@ class RegistrationForm extends React.Component {
   checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
+      form.validateFields(['repassword'], { force: true });
     }
     callback();
   }
@@ -95,7 +104,7 @@ class RegistrationForm extends React.Component {
           label="确认密码"
           hasFeedback
         >
-          {getFieldDecorator('confirm', {
+          {getFieldDecorator('repassword', {
             rules: [{
               required: true, message: '请确认密码'
             }, {
