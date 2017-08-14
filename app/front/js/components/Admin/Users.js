@@ -1,7 +1,7 @@
 /**
  * Created by suxiao on 2017/7/19.
  */
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Table } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,6 +18,16 @@ import * as actions from '../../actions'
 )
 
 export class Users extends Component {
+
+  static propTypes = {
+    users: PropTypes.array.isRequired,
+    receiveUsers: PropTypes.func
+  }
+  
+  static defalutProps = {
+    users: []
+  }
+
   constructor (props) {
     super(props)
   }

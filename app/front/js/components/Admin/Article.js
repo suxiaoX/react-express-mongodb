@@ -2,10 +2,10 @@
  * @Author: leo 
  * @Date: 2017-08-14 11:38:37 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-14 11:50:49
+ * @Last Modified time: 2017-08-14 14:18:35
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Table } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -24,6 +24,10 @@ import * as actions from '../../actions'
 export class Article extends Component {
   constructor (props) {
     super(props)
+  }
+
+  static propTypes = {
+    receiveUsers: PropTypes.func
   }
 
   componentDidMount() {

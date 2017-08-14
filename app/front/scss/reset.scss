@@ -29,6 +29,13 @@ a {
   color: #232323;
 }
 
+a:hover,
+a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
 table {
   border-collapse: collapse;
   table-layout: fixed;
