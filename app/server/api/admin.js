@@ -60,14 +60,24 @@ router.get('/article', async (req, res, next) => {
 })
 // 新增文章
 router.post('/article/add', async (req, res, next) => {
-  console.log(req.body);
-  console.log('-----------article-----------')
+  const id = req.body._id;
+  console.log('-----------article-----------');
+  const newArtilce = new Articles(req.body);
+  console.log(newArtilce);
   try {
-    Articles.find({}, (error, article) => {
-      if (error) {
-        console.log(error)
+    Articles.find({_id: id}, (err, article) => {
+      if (err) {
+        console.log(err)
       } else {
-        console.log(article);
+        if (article.length === 0) {
+          newArtilce.save().then( ret => {
+            console.log(ret);
+            res.json(ret);
+          }, error => {
+            console.log(error);
+            res.json(error)
+          })
+        }
       }
     })
   } catch(err) {

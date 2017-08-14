@@ -28,7 +28,7 @@ class Home extends Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.props.addArticle('/admin/article/add', values);
+        this.props.addArticle('/api/admin/article/add', values);
       } else {
         console.log(err);
       }
