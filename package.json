@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node app/server/server.js",
-    "run": "webpack-dev-server --progress --colors --config webpack.dev.config.js",
+    "server": "node app/server/server.js",
+    "start": "webpack-dev-server --progress --colors --config webpack.dev.config.js",
     "dev": "webpack --progress --colors --config webpack.dev.config.js",
     "build": "cross-env NODE_ENV='production' webpack -p --progress --profile --colors --config webpack.prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -68,6 +68,7 @@
     "es6-promise": "^4.0.5",
     "express-session": "^1.15.5",
     "isomorphic-fetch": "^2.2.1",
+    "open": "^0.0.5",
     "pure-render-decorator": "^1.2.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",

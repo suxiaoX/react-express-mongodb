@@ -68,10 +68,10 @@ module.exports = webpackMerge(baseConfig(), {
       filename: "js/[name].js", // 公共模块文件名
       minChunks: Infinity // Infinity 表示仅仅创建公共组件块，不会把任何modules打包进去。
     }),
-    new ChunkManifestPlugin({ // 将 manifest 提取到一个单独的 JSON 文件中
-      filename: "chunk-manifest.json",
-      manifestVariable: "webpackManifest" // 全局变量的名称，webpack 将利用它查找 manifest JSON 对象
-    })
+    // new ChunkManifestPlugin({ // 将 manifest 提取到一个单独的 JSON 文件中
+    //   filename: "chunk-manifest.json",
+    //   manifestVariable: "webpackManifest" // 全局变量的名称，webpack 将利用它查找 manifest JSON 对象
+    // })
   ],
 
   devServer: { // 开启服务器
