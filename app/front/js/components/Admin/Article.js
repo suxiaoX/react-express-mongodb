@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 11:38:37 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-14 22:12:59
+ * @Last Modified time: 2017-08-15 11:19:25
  */
 
 import React, { Component, PropTypes } from 'react';
@@ -25,7 +25,7 @@ export class Article extends Component {
 
   static propTypes = {
     getArticles: PropTypes.func,
-    articles: PropTypes.array.isRequired
+    articles: PropTypes.object.isRequired
   }
 
   componentDidMount() {

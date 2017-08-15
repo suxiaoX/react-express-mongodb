@@ -2,11 +2,13 @@
  * @Author: leo 
  * @Date: 2017-08-13 14:07:50 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-13 14:08:29
+ * @Last Modified time: 2017-08-15 10:52:20
  */
 /*
 	封装请求
 */
+// import fetch from 'isomorphic-fetch';
+// import 'babel-polyfill';
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 

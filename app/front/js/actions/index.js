@@ -9,7 +9,7 @@ const fetchRequset = () => ({
 })
 
 const fetchSuccess = (users) => ({
-  type: types.FETCH_SUCCESS,
+  type: types.FETCH_USERS,
   users
 })
 

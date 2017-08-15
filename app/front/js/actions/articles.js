@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 16:53:31 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-14 21:51:59
+ * @Last Modified time: 2017-08-15 11:31:36
  */
 import { browserHistory } from 'react-router';
 import * as types from '../constants';
@@ -13,7 +13,7 @@ const fetchRequset = () => ({
 })
 
 const fetchSuccess = (article) => ({
-  type: types.FETCH_SUCCESS,
+  type: types.FETCH_ARTICLES,
   article
 })
 
@@ -27,7 +27,6 @@ export const getArticles = (url) => async (dispatch) => {
         await dispatch(fetchRequset())
         await get(url)
             .then( response => {
-                console.log(response);
                 dispatch(fetchSuccess(response.message));
             }).cache(err => dispatch(fetchFailure(err)))
     } catch (err) {

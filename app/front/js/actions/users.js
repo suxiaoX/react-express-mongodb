@@ -10,7 +10,7 @@ const loginRequset = () => ({
 })
 
 const loginSuccess = (user) => ({
-  type: types.FETCH_SUCCESS,
+  type: types.FETCH_USER_INFO,
   user
 })
 
@@ -24,7 +24,6 @@ export const userFetch = (url, params, redirectUrl) => async (dispatch) => {
     await dispatch(loginRequset())
     await post(url, params)
       .then( response => {
-        console.log(response);
         dispatch(loginSuccess(response));
         if (response.status ==='01') {
           browserHistory.push(redirectUrl);
