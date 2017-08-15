@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 16:53:31 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-15 11:31:36
+ * @Last Modified time: 2017-08-15 11:58:45
  */
 import { browserHistory } from 'react-router';
 import * as types from '../constants';
@@ -15,6 +15,11 @@ const fetchRequset = () => ({
 const fetchSuccess = (article) => ({
   type: types.FETCH_ARTICLES,
   article
+})
+
+const fetchAddArticle = (article) => ({
+    type: types.FETCH_ADD_ARTICLE,
+    article
 })
 
 const fetchFailure = (error) => ({
@@ -40,7 +45,7 @@ export const addArticle = (url, params) => async (dispatch) => {
     await post(url, params)
       .then( response => {
           console.log(response);
-          dispatch(fetchSuccess(response.message));
+          dispatch(fetchAddArticle(response.message));
           if (response.status === '01') {
             browserHistory.push('/admin/article');
           }

@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 17:04:42 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-15 11:16:06
+ * @Last Modified time: 2017-08-15 11:57:50
  */
 // import { handleActions } from 'redux-actions';
 import * as types from '../constants';
@@ -21,6 +21,8 @@ const articlesState = (state=initialState, action) => {
         info = action.article
       }
       return Object.assign({}, state, { articles: info, isFetching: false });
+    case types.FETCH_ADD_ARTICLE:
+      return state;
     default:
       return state
   }

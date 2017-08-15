@@ -10,6 +10,8 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 export const FETCH_USER_INFO = 'FETCH_USER_INFO';
 // 请求文章列表
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
+// 新增文章
+export const FETCH_ADD_ARTICLE = 'FETCH_ADD_ARTICLE';
 // 请求用户
 export const FETCH_USERS = 'FETCH_USERS';
 export const HOME_INFO = 'HOME_INFO';
