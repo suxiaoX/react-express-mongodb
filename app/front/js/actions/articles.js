@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 16:53:31 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-15 12:01:56
+ * @Last Modified time: 2017-08-15 14:16:24
  */
 import { browserHistory } from 'react-router';
 import * as types from '../constants';
@@ -31,7 +31,6 @@ export const getArticles = (url) => async (dispatch) => {
     try {
         await dispatch(fetchRequset())
         const data = await get(url);
-        console.log(data);
         await dispatch(fetchSuccess(data.message));
         // await get(url)
         //     .then( response => {

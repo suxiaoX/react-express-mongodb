@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 11:38:37 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-15 11:19:25
+ * @Last Modified time: 2017-08-15 14:16:42
  */
 
 import React, { Component, PropTypes } from 'react';
@@ -48,7 +48,7 @@ export class Article extends Component {
         key: 'x',
         render: () =>
           <span>
-            <a href="#">查看</a>
+            <a href="#">编辑</a>
             <span className="ant-divider" />
             <a href="#">删除</a>
           </span>

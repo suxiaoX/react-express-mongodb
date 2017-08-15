@@ -15,6 +15,7 @@ export default class Home extends React.Component {
       <div>
         <h3>{this.props.home.title}</h3>
         <p>{this.props.home.description}</p>
+        <a href="admin">编辑后台</a>
       </div>
     );
   }
