@@ -12,10 +12,12 @@ import { bindActionCreators } from 'redux';
 // const { ColumnGroup } = Table;
 
 import * as actions from '../../actions/articles'
+
 @connect(
   state => ({articles: state.articles}),
   dispatch => bindActionCreators({...actions}, dispatch)
 )
+
 class Home extends Component {
   constructor() {
     super();
@@ -29,6 +31,19 @@ class Home extends Component {
       if (!err) {
         console.log('Received values of form: ', values);
         this.props.addArticle('/api/admin/article/add', values);
+        // if (!this.props.articles.isFetching) {
+        //   success();
+        // }
+        // const promise = new Promise( (respones, reject) => {
+        //   this.props.addArticle('/api/admin/article/add', values);
+        //   if (true) {
+        //     resolve(value)
+        //   }
+        // });
+        // // this.props.addArticle('/api/admin/article/add', values);
+        // promise.then( (value) => {
+        //   console.log(value);
+        // })
       } else {
         console.log(err);
       }

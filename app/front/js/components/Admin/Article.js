@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 11:38:37 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-16 11:41:26
+ * @Last Modified time: 2017-08-16 14:35:18
  */
 
 import React, { Component, PropTypes } from 'react';
@@ -14,6 +14,17 @@ const confirm = Modal.confirm;
 // const { ColumnGroup } = Table;
 
 import * as actions from '../../actions/articles'
+
+const success = () => {
+    const modal = Modal.success({
+        title: '提示',
+        content: '删除文章成功'
+    });
+    setTimeout( () => {
+        modal.destroy();
+        browserHistory.push('/admin/article');
+    },1500);
+}
 @connect(
   state => ({articles: state.articles}),
   dispatch => bindActionCreators({...actions}, dispatch)
@@ -40,6 +51,7 @@ export class Article extends Component {
         content: '删除后无法复原',
         onOk() {
             console.log('OK');
+            success();
         },
         onCancel() {
             console.log('cancle');

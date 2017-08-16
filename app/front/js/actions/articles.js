@@ -2,9 +2,10 @@
  * @Author: leo 
  * @Date: 2017-08-14 16:53:31 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-15 14:16:24
+ * @Last Modified time: 2017-08-16 14:32:54
  */
 import { browserHistory } from 'react-router';
+import { Modal } from 'antd';
 import * as types from '../constants';
 import { get, post } from '../utils/request';
 
@@ -26,6 +27,17 @@ const fetchFailure = (error) => ({
   type: types.FETCH_FAILURE,
   error
 })
+
+const success = () => {
+    const modal = Modal.success({
+        title: '添加文章提示',
+        content: '添加文章成功'
+    });
+    setTimeout( () => {
+        modal.destroy();
+        browserHistory.push('/admin/article');
+    },2500);
+}
 // 获取文章列表
 export const getArticles = (url) => async (dispatch) => {
     try {
@@ -44,15 +56,20 @@ export const getArticles = (url) => async (dispatch) => {
 export const addArticle = (url, params) => async (dispatch) => {
   try {
     await dispatch(fetchRequset())
-    await post(url, params)
-      .then( response => {
-          console.log(response);
-          dispatch(fetchAddArticle(response.message));
-          if (response.status === '01') {
-            browserHistory.push('/admin/article');
-          }
-        }
-      ).cache(err => dispatch(fetchFailure(err)))
+    const response = await post(url, params);
+    if (response.status === '01') {
+       success();
+    }
+    dispatch(fetchAddArticle(response.message));
+    // await post(url, params)
+    //   .then( response => {
+    //       console.log(response);
+    //       dispatch(fetchAddArticle(response.message));
+    //       if (response.status === '01') {
+    //         browserHistory.push('/admin/article');
+    //       }
+    //     }
+    //   ).cache(err => dispatch(fetchFailure(err)))
   } catch (err) {
     dispatch( fetchFailure(err) )
   }
