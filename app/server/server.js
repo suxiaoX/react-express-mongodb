@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Cookies = require('cookies');
 const cors = require('cors');
+const session = require('express-session');
+const passport = require('passport');
 
 const config = require('../../webpack.dev.config');
 const api = require('./api');
@@ -55,6 +57,34 @@ app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
 // 设置跨域访问
 app.use(cors());
+// 登录验证
+app.use(session({
+  secret: 'leo-blog',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  } else {
+    res.redirect('/sign');
+  }
+}
+
+ app.get('/admin', isAuthenticated, async (req, res) => {
+  const filename = path.join(config.output.path, 'index.html')
+  compiler.outputFileSystem.readFile(filename, (err, result) => {
+    if (err) {
+      return next(err)
+    }
+    res.set('content-type', 'text/html');
+    res.send(result);
+    res.end();
+  })
+ })
 /*
 app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");

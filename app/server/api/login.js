@@ -3,6 +3,10 @@
  */
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+// const crypto = require('crypto');
+// const bcrypt = require('bcrypt');
 
 const Users = require('../model/users');
 // 统一返回格式
@@ -15,7 +19,58 @@ router.use( (req, res, next) => {
   next();
 })
 
+passport.use(new LocalStrategy({
+  _usernameFiled: 'username',
+  _passwordFiled: 'password',
+  passReqToCallback: true
+}, (req, username, password, done) => {
+  Users.findOne({username: username, password: password}, (err, user) => {
+    if (err) {
+      console.log(err);
+      return done(err);
+    } else {
+      if (!user) {
+        responseData = {
+          status: '03',
+          message: '用户名或密码错误'
+        }
+        return done(null, false, responseData);
+      } else {
+        responseData = {
+          status: '01',
+          message: '登录成功',
+          userInfo: user.username
+        }
+        // const userObj = user.toObject();
+        // bcrypt.compare(password, userObj.passport, (err, res) => {
+
+        // })
+        return done(null, user);
+        // res.json(responseData);
+      }
+    }
+  })
+}))
+
+passport.serializeUser((user, done) => {
+  done(null, user._id)
+})
+
+passport.deserializeUser((_id, done) => {
+  done(null, _id)
+})
+
+const options = {
+  successRedirect: '/home',
+  failureRedirect: '/sign'
+}
+
+router.post('/', passport.authenticate('local', options), async (req, res, next) => {
+  res.json(responseData);
+})
+
 // 登录
+/*
 router.post('/', (req, res, next) => {
   console.log(req.body);
   try {
@@ -61,5 +116,5 @@ router.post('/', (req, res, next) => {
     next(error)
   }
 })
-
+*/
 module.exports = router;
