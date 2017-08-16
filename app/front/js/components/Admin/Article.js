@@ -2,14 +2,15 @@
  * @Author: leo 
  * @Date: 2017-08-14 11:38:37 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-15 14:16:42
+ * @Last Modified time: 2017-08-16 11:41:26
  */
 
 import React, { Component, PropTypes } from 'react';
-import { Table } from 'antd';
+import { Table, Modal } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+const confirm = Modal.confirm;
 // const { ColumnGroup } = Table;
 
 import * as actions from '../../actions/articles'
@@ -20,7 +21,8 @@ import * as actions from '../../actions/articles'
 
 export class Article extends Component {
   constructor (props) {
-    super(props)
+    super(props);
+    this.showConfirm = this.showConfirm.bind(this);
   }
 
   static propTypes = {
@@ -30,6 +32,19 @@ export class Article extends Component {
 
   componentDidMount() {
     this.props.getArticles('/api/admin/article');
+  }
+
+  showConfirm() {
+    confirm({
+        title: '确认删除此文章?',
+        content: '删除后无法复原',
+        onOk() {
+            console.log('OK');
+        },
+        onCancel() {
+            console.log('cancle');
+        }
+    })
   }
 
   render() {
@@ -50,12 +65,13 @@ export class Article extends Component {
           <span>
             <a href="#">编辑</a>
             <span className="ant-divider" />
-            <a href="#">删除</a>
+            <a onClick={this.showConfirm}>删除</a>
           </span>
       }
     ];
     return (
       <div>
+        
         {
           !isFetching ? <Table columns={columns} dataSource={articles} rowKey={users => users._id} style={{textAlign: 'center'}} bordered /> : null
         }
