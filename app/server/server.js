@@ -10,9 +10,11 @@ const WebpackHotMiddleware = require('webpack-hot-middleware');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Cookies = require('cookies');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const session = require('express-session');
-const passport = require('passport');
+const MongoStore = require('connect-mongo/es5')(session);
+// const passport = require('passport');
 
 const config = require('../../webpack.dev.config');
 const api = require('./api');
@@ -55,26 +57,38 @@ app.use(express.static('static'));
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
-// 设置跨域访问
-app.use(cors());
+
 // 登录验证
+app.use(cookieParser()); // 使用cookie-parser插件，后续代码直接使用req.cookies
 app.use(session({
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  }),
   secret: 'leo-blog',
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true,
+  cookie: { 
+    path: '/'
+  }
 }));
+/*
+* 验证登录，不过passport多用于多页面验证，所以这里不适用，自己写一个中间件实现吧
 app.use(passport.initialize());
 app.use(passport.session());
 
 function isAuthenticated(req, res, next) {
+  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     return next()
   } else {
+    // res.json({ status: '02', message: '请先登录' });
     res.redirect('/sign');
   }
 }
-
+// 后台权限
  app.get('/admin', isAuthenticated, async (req, res) => {
+   console.log(req.session.user);
+   
   const filename = path.join(config.output.path, 'index.html')
   compiler.outputFileSystem.readFile(filename, (err, result) => {
     if (err) {
@@ -85,6 +99,9 @@ function isAuthenticated(req, res, next) {
     res.end();
   })
  })
+*/
+ // 设置跨域访问 
+app.use(cors());
 /*
 app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -100,25 +117,25 @@ app.all('*', (req, res, next) => {
 });
 */
 // 设置cookie
-app.use( (req, res, next) => {
-  req.cookies = new Cookies(req, res);
-  // console.log(req.cookies.get('userInfo'))
-  req.userInfo = {};
-  if (req.cookies.get('userInfo')) {
-    try {
-      req.userInfo = JSON.parse(req.cookies.get('userInfo'));
-      // 获取当前登录用户的类型，是否是管理员
-      // Users.findById(req.userInfo._id).then(function(userInfo) {
-      //   req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
-      //   next();
-      // })
-    }catch(err){
-      console.log(err);
-    }
-  } else {
-    next();
-  }
-})
+// app.use( (req, res, next) => {
+//   req.cookies = new Cookies(req, res);
+//   // console.log(req.cookies.get('userInfo'))
+//   req.userInfo = {};
+//   if (req.cookies.get('userInfo')) {
+//     try {
+//       req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+//       // 获取当前登录用户的类型，是否是管理员
+//       // Users.findById(req.userInfo._id).then(function(userInfo) {
+//       //   req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+//       //   next();
+//       // })
+//     }catch(err){
+//       console.log(err);
+//     }
+//   } else {
+//     next();
+//   }
+// })
 
 app.use('/api', api);
 // Router.route('/',(req, res) => {
@@ -126,7 +143,7 @@ app.use('/api', api);
 // });
 // 解决子路由刷新无法访问的问题
 app.get('/*', (req, res, next) => {
-  // console.log(req.userInfo);
+  console.log(req.session);
   const filename = path.join(config.output.path, 'index.html')
   console.log(filename);
   compiler.outputFileSystem.readFile(filename, (err, result) => {

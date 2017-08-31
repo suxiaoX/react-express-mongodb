@@ -21,15 +21,21 @@ const loginFailure = (error) => ({
 // 请求register, login
 export const userFetch = (url, params, redirectUrl) => async (dispatch) => {
   try {
-    await dispatch(loginRequset())
-    await post(url, params)
-      .then( response => {
-        dispatch(loginSuccess(response));
-        if (response.status ==='01') {
-          browserHistory.push(redirectUrl);
-        }
-      })
-      .cache(err => dispatch(loginFailure(err)))
+    await dispatch(loginRequset());
+    const response = await post(url, params);
+    dispatch(loginSuccess(response));
+    if (response.status ==='01') {
+      browserHistory.push(redirectUrl);
+    }
+    // await post(url, params)
+    //   .then( response => {
+    //     console.log(response);
+    //     dispatch(loginSuccess(response));
+    //     if (response.status ==='01') {
+    //       browserHistory.push(redirectUrl);
+    //     }
+    //   })
+    //   .cache(err => dispatch(loginFailure(err)))
   } catch (err) {
     dispatch( loginFailure(err) )
   }

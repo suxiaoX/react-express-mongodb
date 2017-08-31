@@ -2,6 +2,7 @@
  * Created by suxiao on 2017/7/18.
  */
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 // const mongoose = require('mongoose')
 
@@ -46,10 +47,7 @@ router.post('/', (req, res, next) => {
       res.json(responseData);
       return;
     }
-    const newUser = new Users({
-      username: username,
-      password: password
-    });
+    
     Users.findOne({username: username}, (err, user) => {
       console.log(req.body);
       if (err) {
@@ -58,15 +56,27 @@ router.post('/', (req, res, next) => {
         if (user) {
           responseData.status = '05';
           responseData.message = '用户名已经被注册了';
-          res.json(responseData);
-        } else {
-          responseData = {
-            status: '01',
-            message: '注册成功'
-          }
-          res.json(responseData);
-          newUser.save();
-        }
+          return res.json(responseData);
+        } 
+        const saltRounds = 10;
+        bcrypt.genSalt(saltRounds, (err, salt) => {
+          bcrypt.hash(password, salt, (err, hash) => {
+            if (err) {
+              return next(err);
+            }
+            const newUser = new Users({
+              username: username,
+              password: hash
+            });
+            responseData = {
+              status: '01',
+              message: '注册成功'
+            }
+            newUser.save().then(() => {
+              res.json(responseData);
+            });
+          })
+        })
       }
     })
   } catch (err) {

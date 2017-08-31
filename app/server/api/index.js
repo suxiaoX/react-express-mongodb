@@ -10,5 +10,6 @@ const router = express.Router();
 router.use('/login', require('./login'));
 router.use('/register', require('./register'));
 router.use('/admin', require('./admin'));
+router.use('/logout', require('./logout'));
 
 module.exports = router;
