@@ -2,6 +2,7 @@
  * Created by suxiao on 2017/7/17.
  */
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 // const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
@@ -88,37 +89,48 @@ router.post('/', (req, res, next) => {
         status: '02',
         message: '用户名或密码不能为空'
       }
-      res.json(responseData);
-      return;
+      return res.json(responseData);
     }
-    Users.findOne({username: username, password: password}, (err, user) => {
+    Users.findOne({ username: username }, (err, user) => {
       if (err) {
         console.log(err)
       } else {
         if (!user) {
           responseData = {
             status: '03',
-            message: '用户名或密码错误',
-            userInfo: user.username
+            message: '用户名或密码错误'
           }
           return res.json(responseData);
         } 
-        responseData = {
-          status: '01',
-          message: '登录成功',
-          userInfo: user.username
-        }
-        req.session.user = {
-          id: user._id,
-          username: user.username
-        };
-        console.log(req.session);
-        res.cookie('userInfo', {responseData}, {
-          path: '/',
-          maxAge: 1000 * 60 * 60 * 24 * 30,
-          httpOnly: true
-        });
-        return res.json(responseData);
+        bcrypt.compare(password, user.password, (err, responese) => {
+          if (err){ 
+            return next(err);
+          }
+          if (responese === false) {
+            responseData = {
+              status: '04',
+              message: '用户名或密码错误'
+            }
+            return res.json(responseData);
+          } else {
+            responseData = {
+              status: '01',
+              message: '登录成功',
+              userInfo: user.username
+            }
+            // req.session.user = {
+            //   id: user._id,
+            //   username: user.username
+            // };
+            // console.log(req.session);
+            // res.cookie('userInfo', {responseData}, {
+            //   path: '/',
+            //   maxAge: 1000 * 60 * 60 * 24 * 30,
+            //   httpOnly: true
+            // });
+            return res.json(responseData);
+          }
+        })
         // req.session.regenerate( (err) => {
         //   if (err) {
         //     console.log(err)
