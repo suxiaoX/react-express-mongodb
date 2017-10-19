@@ -13,7 +13,7 @@ import Register from '../containers/Register';
 import App from '../containers/App';
 import NotFound from '../components/NotFound'
 import { All, Auto, Mongo, Node, Blog } from '../components/Blog';
-import { Admin, Users, AdminHome, Article } from '../components/Admin'
+import { Admin, Users, AdminHome, Article, EditArticle } from '../components/Admin'
 import { enterHomePage, leaveHomePage } from '../utils/enterOrLeaveRoute'
 
 export default (
@@ -34,6 +34,7 @@ export default (
           <IndexRoute components={AdminHome}/>
           <Route path="users" component={Users} />
           <Route path="article" component={Article} />
+          <Route path="edit" component={EditArticle} />
         </Route>
         <Route path="404" component={NotFound} />
         <Redirect from="/*" to="/404" />

@@ -1,8 +1,9 @@
 /**
  * Created by '苏萧' on 2017/7/13.
  */
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import GetStorage from '../../components/GetStorage';
 
@@ -12,6 +13,19 @@ import GetStorage from '../../components/GetStorage';
 )
 
 class HomeComponent extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+  static defaultProps = {
+    home: {},
+    data: ''
+  }
+
+  static propTypes = {
+    home: PropTypes.object,
+    data: PropTypes.string
+  }
   render() {
     return (
       <div>

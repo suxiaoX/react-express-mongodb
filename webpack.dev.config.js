@@ -41,9 +41,19 @@ module.exports = webpackMerge(baseConfig(), {
         ]
       },
       {
-        test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif|mp4|webm)(\?\S*)?$/,
+        test: /\.css$/,
+        use: [
+          "style-loader", "css-loader", "postcss-loader"
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|mp4|webm)$/,
         include: APP_PATH,
         loader: "url-loader?limit=8192&name=imgs/[name].[ext]"
+      },
+      {
+        test: /\.(eot|woff|ttf|woff2|svg)$/,
+        use: 'url-loader'
       }
     ]
   },
