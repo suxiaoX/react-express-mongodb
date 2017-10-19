@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-13 14:09:04 
  * @Last Modified by: leo
- * @Last Modified time: 2017-10-19 15:34:37
+ * @Last Modified time: 2017-10-19 21:41:02
  */
 /*
    路由 跳转 确认 集合
@@ -29,6 +29,6 @@ export const enterHomePage = (nextState, replace, next) => {
     // 否则，返回一个字符串，会显示给用户，让其自己决定
     console.log('leave Home Page');
     alert('确认离开吗');
-    console.log(nextLocation);
+    // console.log(nextLocation);
  }
  
