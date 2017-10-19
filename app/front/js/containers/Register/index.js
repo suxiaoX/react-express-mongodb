@@ -2,6 +2,8 @@
  * Created by suxiao on 2017/7/18.
  */
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
 import '../../../scss/login.scss';
 import { Form, Input, Icon, Checkbox, Button } from 'antd';
 import { connect } from 'react-redux';
@@ -14,6 +16,10 @@ const FormItem = Form.Item;
   dispatch => bindActionCreators({userFetch}, dispatch)
 )
 class RegistrationForm extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
   state = {
     confirmDirty: false
   };

@@ -2,6 +2,8 @@
  * Created by '苏萧' on 2017/7/13.
  */
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
 import '../../../scss/login.scss';
 // import Partial from '../partial';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
@@ -15,6 +17,10 @@ const FormItem = Form.Item;
   dispatch => bindActionCreators({userFetch}, dispatch)
 )
 class LoginModel extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
   componentDidMount() {
     // To disabled submit button at the beginning.
     // this.props.form.validateFields();
