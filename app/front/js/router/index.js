@@ -14,11 +14,12 @@ import App from '../containers/App';
 import NotFound from '../components/NotFound'
 import { All, Auto, Mongo, Node, Blog } from '../components/Blog';
 import { Admin, Users, AdminHome, Article } from '../components/Admin'
+import enterOrLeaveRoute from '../utils/enterOrLeaveRoute'
 
 export default (
     <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="home" component={Home}/>
+        <Route path="home" component={Home} onEnter={enterOrLeaveRoute}/>
         <Route path="/blog" component={Blog}>
             <IndexRoute component={All} />
             <Route path="node" component={Node} />

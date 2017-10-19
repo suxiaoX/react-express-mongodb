@@ -38,7 +38,7 @@
     "max-len": [2, 200],
     "no-eq-null": 2,
     "operator-linebreak": 2,
-    "no-multiple-empty-lines": [2, { max: 2 }],
+    "no-multiple-empty-lines": [2, { "max": 2 }],
     "no-mixed-spaces-and-tabs": 0,
     "space-unary-ops": 2,
     "no-multi-spaces": 2,

@@ -4,6 +4,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { receiveUserInfo } from '../actions/about'
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Header from '../components/Header'
 import 'antd/dist/antd.less';
 import '../../scss/app.scss';
@@ -17,6 +18,10 @@ import '../../scss/pubilc.scss'
 )
 
 class App extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
   render() {
     // console.log(this.props.about);
     // console.log(this.props.receiveUserInfo);

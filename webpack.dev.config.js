@@ -93,6 +93,12 @@ module.exports = webpackMerge(baseConfig(), {
       modules: false,
       chunks: false
     },
+    /*
+    overlay: { // 报错和警告在页面显示
+      errors: true,
+      warnings: true,
+    },
+    */
     //解决跨域
     proxy: {
       "/api/*": {

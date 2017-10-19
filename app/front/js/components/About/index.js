@@ -12,7 +12,11 @@ import { receiveUserInfo } from '../../actions/about'
 
 export default class About extends React.Component {
   render() {
-    console.log(this.props.about.info)
+    console.log(this.props.about.info);
+    // let items = [1, 2, 3].map( (value, index) => {
+    //   return <div>{value}</div>;
+    // });
+    // console.log(items);
     return (
       <div>{this.props.about.info}</div>
     );

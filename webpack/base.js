@@ -54,7 +54,7 @@ module.exports = function () {
         {
           test: /\.(js|jsx)$/,
           include: APP_PATH,
-          loader: "babel-loader"
+          loader: "babel-loader?cacheDirectory" // babel缓存打开，避免编译耗时过多
         },
         {
           test: /\.less$/,
