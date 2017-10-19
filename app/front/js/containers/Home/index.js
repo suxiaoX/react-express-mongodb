@@ -4,7 +4,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import GetStorage from '../GetStorage/GetStorage';
+import GetStorage from '../../components/GetStorage';
 
 @connect(
   state => ({home: state.home}),

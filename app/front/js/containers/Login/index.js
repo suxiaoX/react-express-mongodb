@@ -36,14 +36,14 @@ class LoginModel extends React.Component {
         <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '300px', margin: '80px auto'}}>
           <FormItem>
             {getFieldDecorator('username', {
-              rules: [{ required: true, message: 'Please input your username!' }]
+              rules: [{ required: true, message: '请输入用户名' }]
             })(
               <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
             )}
           </FormItem>
           <FormItem>
             {getFieldDecorator('password', {
-              rules: [{ required: true, message: 'Please input your Password!' }]
+              rules: [{ required: true, message: '请输入密码' }]
             })(
               <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
             )}

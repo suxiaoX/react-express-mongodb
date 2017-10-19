@@ -6,20 +6,20 @@ import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
 import About from '../components/About';
-import Home from '../components/Home';
-import Login from '../components/Login';
-import Register from '../components/Register';
+import Home from '../containers/Home';
+import Login from '../containers/Login';
+import Register from '../containers/Register';
 // import Blog from '../components/Blog';
 import App from '../containers/App';
 import NotFound from '../components/NotFound'
 import { All, Auto, Mongo, Node, Blog } from '../components/Blog';
 import { Admin, Users, AdminHome, Article } from '../components/Admin'
-import enterOrLeaveRoute from '../utils/enterOrLeaveRoute'
+import { enterHomePage, leaveHomePage } from '../utils/enterOrLeaveRoute'
 
 export default (
     <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="home" component={Home} onEnter={enterOrLeaveRoute}/>
+        <Route path="home" component={Home} onEnter={enterHomePage} onLeave={leaveHomePage} />
         <Route path="/blog" component={Blog}>
             <IndexRoute component={All} />
             <Route path="node" component={Node} />

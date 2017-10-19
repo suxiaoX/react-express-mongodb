@@ -10,10 +10,10 @@ export default class Header extends React.Component {
   render() {
     return (
         <Row gutter={24} type="flex" justify="space-around" className="header">
-          <Col span={8}>
+          <Col span={6}>
             <h1 className="title">小黑哥的BLOG</h1>
           </Col>
-          <Col span={10}>
+          <Col span={16}>
             <NavLink />
           </Col>
         </Row>

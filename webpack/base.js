@@ -52,7 +52,7 @@ module.exports = function () {
           }
         },
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(js|jsx)$/, // 如果项目中只用到了JS后缀，那么就只写JS，避免文件搜索范围过大
           include: APP_PATH,
           loader: "babel-loader?cacheDirectory" // babel缓存打开，避免编译耗时过多
         },

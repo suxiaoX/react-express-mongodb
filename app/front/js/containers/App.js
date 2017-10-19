@@ -2,8 +2,8 @@
  * Created by '苏萧' on 2017/7/13.
  */
 import React from 'react'
-import { connect } from 'react-redux'
-import { receiveUserInfo } from '../actions/about'
+// import { connect } from 'react-redux'
+// import { receiveUserInfo } from '../actions/about'
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Header from '../components/Header'
 import 'antd/dist/antd.less';
@@ -12,10 +12,10 @@ import '../../scss/pubilc.scss'
 
 // import { Button } from 'antd';
 
-@connect(
-  state => ({about: state.about}),
-  dispatch => ({ receiveUserInfo })
-)
+// @connect(
+//   state => ({about: state.about}),
+//   dispatch => ({ receiveUserInfo })
+// )
 
 class App extends React.Component {
   constructor(props, context) {
