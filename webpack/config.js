@@ -22,7 +22,9 @@ exports.vendor = [
   'isomorphic-fetch',
   'es6-promise',
   'pure-render-decorator',
-  'react-addons-css-transition-group'
+  'react-addons-css-transition-group',
+  'antd',
+  'antd/dist/antd.less'
 ];
 // css 代码自动补全配置
 exports.autoConfig = {

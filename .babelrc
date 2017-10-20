@@ -1,7 +1,7 @@
 
 {
   "presets": [
-    ["es2015", {"modules": false}],
+    ["es2015", { "modules": false }],
     "stage-2",
     "react"
   ],
@@ -9,7 +9,14 @@
     "react-hot-loader/babel",
     "transform-object-assign",
     "transform-decorators-legacy",
-    ["transform-runtime", ["import", {"libraryName": "antd","style": true}], {"polyfill": false, "regenerator": true}]
+    [
+      "transform-runtime", 
+      [
+        "import",
+        { "libraryName": "antd", "style": true }
+      ], 
+      { "polyfill": false, "regenerator": true }
+    ]
   ],
   "env": {
     "development": {

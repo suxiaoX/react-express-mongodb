@@ -2,7 +2,7 @@
  * @Author: leo 
  * @Date: 2017-08-14 16:53:31 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-16 14:32:54
+ * @Last Modified time: 2017-10-20 16:59:07
  */
 import { browserHistory } from 'react-router';
 import { Modal } from 'antd';
@@ -44,10 +44,6 @@ export const getArticles = (url) => async (dispatch) => {
         await dispatch(fetchRequset())
         const data = await get(url);
         await dispatch(fetchSuccess(data.message));
-        // await get(url)
-        //     .then( response => {
-        //         dispatch(fetchSuccess(response.message));
-        //     }).cache(err => dispatch(fetchFailure(err)))
     } catch (err) {
         dispatch(fetchFailure(err));
     }

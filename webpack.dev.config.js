@@ -23,7 +23,7 @@ module.exports = webpackMerge(baseConfig(), {
       "webpack/hot/only-dev-server",
       "./app/front/js/index.js"
     ],
-    verdor: config.vendor // 公共文件单独打包
+    vendor: config.vendor // 公共文件单独打包
   },
   output: {
     path: defPath.DEV_PATH,// 所有输出文件的目标路径
@@ -121,15 +121,8 @@ module.exports = webpackMerge(baseConfig(), {
     //使用的url 必须以 / 开始 否则不会代理到指定地址
     /**
      * --实例使用方法--
-     *  fetch("/device/space").then(res => {
-        // 被代理到 http://debug.xxx.com/device/space
-        return res.json();
-    }).then(res => {
-        console.log(res);
-    })
-
-     fetch("device/space").then(res => {
-        // http://localhost:8080/device/space 访问本地服务
+     *  fetch("/api/space").then(res => {
+        // 被代理到 http://${ip}:3333/api/space
         return res.json();
     }).then(res => {
         console.log(res);

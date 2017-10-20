@@ -30,7 +30,7 @@ class HomeComponent extends React.Component {
     return (
       <div>
         <h3>{this.props.home.title}</h3>
-        <p>{this.props.home.description}</p>
+        <p onClick={this.props.testClick}>{this.props.home.description}</p>
         <p>{this.props.data}</p>
         <a href="admin">编辑后台</a>
       </div>
