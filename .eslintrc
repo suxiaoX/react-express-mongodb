@@ -24,7 +24,7 @@
   "rules": {
     // Common js rules
     "brace-style": [2, "1tbs", { "allowSingleLine": true }],
-    // "prop-types": [2],
+    "prop-types": [1],
     "camelcase": 2,
     "curly": 2,
     "eqeqeq": 2,
