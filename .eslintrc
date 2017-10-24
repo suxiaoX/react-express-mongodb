@@ -4,7 +4,10 @@
 //    "comma-dangle": ["error", "never"]
 //  }
 //}
+// 规则： 0 代表忽略 1 只警告通过校验 2 报错并需要修改才能通过校验
 {
+  // 引入轮子 Airbnb的验证规则
+  // "extends": "airbnb",
   "plugins": [
     "react", "jsdoc"
   ],
@@ -21,9 +24,14 @@
     "node": true,
     "es6": true
   },
+  // 以当前目录为根目录，不在往上查找
+  "root": true,
   "rules": {
     // Common js rules
+    // 禁止将await写在循环里，因为这样就无法同时发送多个一部请求了
+    "no-await-in-loop": "off",
     "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+    // react的PropType定义，一般是2 
     "prop-types": [1],
     "camelcase": 2,
     "curly": 2,
