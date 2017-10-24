@@ -3,7 +3,7 @@
  */
 import * as types from '../constants';
 
-export const receiveUserInfo = data => ({
+export const receiveUserInfo = (data) => ({
   type: types.FETCH_USER_INFO,
   info: data
 });

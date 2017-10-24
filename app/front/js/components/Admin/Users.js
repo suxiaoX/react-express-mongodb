@@ -13,8 +13,8 @@ require('isomorphic-fetch');
 
 import * as actions from '../../actions'
 @connect(
-  state => ({users: state.users}),
-  dispatch => bindActionCreators({...actions}, dispatch)
+  (state) => ({users: state.users}),
+  (dispatch) => bindActionCreators({...actions}, dispatch)
 )
 
 export class Users extends Component {
@@ -53,7 +53,7 @@ export class Users extends Component {
     if (!isFetching && users) {
       console.log(users);
       for (let i=0; i<users.length; i++) {
-        Object.keys(users[i]).forEach(key => {
+        Object.keys(users[i]).forEach((key) => {
           if (key !== 'admin') {
             users[i].admin = users[i].isAdmin ? '是' : '否';
           }
@@ -63,7 +63,7 @@ export class Users extends Component {
     return (
       <div>
         {
-          (!isFetching && users) && <Table columns={columns} dataSource={users} rowKey={users => users._id} style={{textAlign: 'center'}} bordered />
+          (!isFetching && users) && <Table columns={columns} dataSource={users} rowKey={(users) => users._id} style={{textAlign: 'center'}} bordered />
         }
       </div>
     )

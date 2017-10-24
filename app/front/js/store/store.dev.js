@@ -13,13 +13,13 @@ import rootReducer from '../reducers'
 const logger = createLogger({ collapsed: true });
 // const reduxRouterMiddleware = routerMiddleware(browserHistory);
 
-let createStoreWithMiddleware = compose(
+const createStoreWithMiddleware = compose(
   applyMiddleware(
     thunkMiddleware,
     // reduxRouterMiddleware,
     logger
   ),
-  window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore);
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f)(createStore);
 
 const configureStore = (initialState) => {
   const store = createStoreWithMiddleware(rootReducer, initialState);

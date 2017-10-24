@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 // const mongoose = require('mongoose')
 
-let Users = require('../model/users');
+const Users = require('../model/users');
 
 // 统一返回格式
 

@@ -36,7 +36,7 @@ const success = () => {
     setTimeout( () => {
         modal.destroy();
         browserHistory.push('/admin/article');
-    },2500);
+    }, 2500);
 }
 // 获取文章列表
 export const getArticles = (url) => async (dispatch) => {

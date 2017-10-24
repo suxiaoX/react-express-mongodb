@@ -35,13 +35,13 @@ const request = (method, url, body) => {
 		body
 	}).then((res) => {
 		return res.json();
-	}).then(data => {
+	}).then((data) => {
 		// console.log(data)
 		return data
 	});
 }
 
-export const get = url => request('GET', url);
+export const get = (url) => request('GET', url);
 export const post = (url, body) => request('POST', url, body);
 export const put = (url, body) => request('PUT', url, body);
 export const del = (url, body) => request('DELETE', url, body);

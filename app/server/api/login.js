@@ -112,7 +112,7 @@ router.post('/', (req, res, next) => {
               message: '用户名或密码错误'
             }
             return res.json(responseData);
-          } else {
+          } 
             responseData = {
               status: '01',
               message: '登录成功',
@@ -129,7 +129,7 @@ router.post('/', (req, res, next) => {
             //   httpOnly: true
             // });
             return res.json(responseData);
-          }
+          
         })
         // req.session.regenerate( (err) => {
         //   if (err) {

@@ -6,7 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 
 import rootReducer from '../reducers'
 
-let createStoreWithMiddleware = compose(
+const createStoreWithMiddleware = compose(
   applyMiddleware(
     thunkMiddleware
   )

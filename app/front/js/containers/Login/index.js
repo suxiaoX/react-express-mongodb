@@ -13,8 +13,8 @@ import { userFetch } from '../../actions/users';
 const FormItem = Form.Item;
 
 @connect(
-  state => ({userInfo: state.userInfo}),
-  dispatch => bindActionCreators({userFetch}, dispatch)
+  (state) => ({userInfo: state.userInfo}),
+  (dispatch) => bindActionCreators({userFetch}, dispatch)
 )
 class LoginModel extends React.Component {
   constructor(props, context) {

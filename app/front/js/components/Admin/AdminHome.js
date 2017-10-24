@@ -14,8 +14,8 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/articles'
 
 @connect(
-  state => ({articles: state.articles}),
-  dispatch => bindActionCreators({...actions}, dispatch)
+  (state) => ({articles: state.articles}),
+  (dispatch) => bindActionCreators({...actions}, dispatch)
 )
 
 class Home extends Component {

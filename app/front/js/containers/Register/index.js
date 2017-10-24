@@ -12,8 +12,8 @@ import { userFetch } from '../../actions/users';
 const FormItem = Form.Item;
 
 @connect(
-  state => ({userInfo: state.userInfo}),
-  dispatch => bindActionCreators({userFetch}, dispatch)
+  (state) => ({userInfo: state.userInfo}),
+  (dispatch) => bindActionCreators({userFetch}, dispatch)
 )
 class RegistrationForm extends React.Component {
   constructor(props, context) {

@@ -22,8 +22,8 @@ export const receiveUsers = (url) => async (dispatch) => {
   try {
     await dispatch(fetchRequset())
     await get(url)
-      .then( response => dispatch(fetchSuccess(response.message)))
-      .cache(err => dispatch(fetchFailure(err)))
+      .then( (response) => dispatch(fetchSuccess(response.message)))
+      .cache((err) => dispatch(fetchFailure(err)))
   } catch (err) {
     dispatch( fetchFailure(err) )
   }

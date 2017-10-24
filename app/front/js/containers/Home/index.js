@@ -8,8 +8,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import GetStorage from '../../components/GetStorage';
 
 @connect(
-  state => ({home: state.home}),
-  dispatch => ({})
+  (state) => ({home: state.home}),
+  (dispatch) => ({})
 )
 
 class HomeComponent extends React.Component {

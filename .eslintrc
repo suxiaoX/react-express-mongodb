@@ -1,12 +1,6 @@
-//{
-//  "extends": "airbnb",
-//  "rules": {
-//    "comma-dangle": ["error", "never"]
-//  }
-//}
-// 规则： 0 代表忽略 1 只警告通过校验 2 报错并需要修改才能通过校验
+// 规则： 0 代表忽略 off 1 只警告通过校验 warning 2 报错并需要修改才能通过校验 error
 {
-  // 引入轮子 Airbnb的验证规则
+  // 引入轮子 Airbnb的验证规则-- 这里有冲突，暂时不引入
   // "extends": "airbnb",
   "plugins": [
     "react", "jsdoc"
@@ -30,53 +24,131 @@
     // Common js rules
     // 禁止将await写在循环里，因为这样就无法同时发送多个一部请求了
     "no-await-in-loop": "off",
+    // 强制在代码块中使用一致的大括号风格
     "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+    // 强制使用骆驼拼写法命名约定
     "camelcase": 2,
+    // 强制所有控制语句使用一致的括号风格
     "curly": 2,
+    // 要求使用 === 和 !==
     "eqeqeq": 2,
+    // 禁止扩展原生类型
     "no-extend-native": 2,
+    // 禁用 __proto__ 属性
     "no-proto": 2,
+    // 禁用 arguments.caller 或 arguments.callee
     "no-caller": 2,
+    // 禁止出现未使用过的变量
     "no-unused-vars": [2, { "vars": "all", "args": "none" }],
+    // 要求构造函数首字母大写
     "new-cap": 0,
+    // 强制使用一致的反勾号、双引号或单引号 这里是单引号
     "quotes": [2, "single"],
+    // 强制可嵌套的块的最大深度
     "max-depth": [2, 3],
+    // 强制函数块最多允许的的语句数量
     "max-statements": [2, 45],
+    // 强制每一行中所允许的最大语句数量
+    "max-statements-per-line": [2, { "max": 2 }],
+    // 强制一行的最大长度
     "max-len": [2, 200],
+    // 禁止在没有类型检查操作符的情况下与 null 进行比较
     "no-eq-null": 2,
+    // 强制操作符使用一致的换行符
     "operator-linebreak": 2,
+    // 禁止出现多行空行
     "no-multiple-empty-lines": [2, { "max": 2 }],
+    // 禁止空格和 tab 的混合缩进
     "no-mixed-spaces-and-tabs": 0,
+    // 强制在一元操作符前后使用一致的空格
     "space-unary-ops": 2,
+    // 禁止使用多个空格
     "no-multi-spaces": 2,
+    // 强制在块之前使用一致的空格
     "space-before-blocks": 0,
+    // 强制在关键字前后使用一致的空格
     "keyword-spacing": 0,
+    // 要求操作符周围有空格
     "space-infix-ops": 0,
-    "comma-spacing": [0, { "before": false, "after": true }],
+    // 强制在逗号前后使用一致的空格
+    "comma-spacing": [2, { "before": false, "after": true }],
+    // 要求或禁止末尾逗号
     "comma-dangle": 2,
+    // 要求 IIFE 使用括号括起来
     "wrap-iife": 2,
+    // 禁止不必要的分号
     "no-extra-semi": 2,
+    // 强制分号之前和之后使用一致的空格
     "semi-spacing": 2,
+    // 强制在注释中 // 或 /* 使用一致的空格
     "spaced-comment": 2,
+    // 要求或禁止使用命名的 function 表达式
     "func-names": 0,
 
     // NodeJs rules
     "block-scoped-var": 2,
+    // 要求 require() 出现在顶层模块作用域中
     "global-require": 0,
+    // 禁止混合常规变量声明和 require 调用
     "no-mixed-requires": 2,
+    // 禁止调用 require 时使用 new 操作符
     "no-new-require": 2,
+    // 禁止对 __dirname 和 __filename 进行字符串连接
+    "no-path-concat": 2,
+    // 禁止使用console
+    "no-console": 1,
+    "no-alert": 0,
+    // 要求使用 isNaN() 检查 NaN
+    "use-isnan": 2,
+    // 禁止 if 语句中 return 语句之后有 else 块
+    "no-else-return": 2,
+    // 禁止 case 语句落空
+    "no-fallthrough": 2,
+    // 禁止多次声明同一变量
+    "no-redeclare": 2,
 
-    // ES6 rules
+    // ES6 rules 上面是说明，下面是设置
+    // 强制箭头函数的箭头前后使用一致的空格
     "arrow-spacing": 2,
+    // 禁止修改 const 声明的变量
     "no-const-assign": 2,
+    // 禁止修改类声明的变量
+    "no-class-assign": 2,
+    // 禁止类成员中出现重复的名称
+    "no-dupe-class-members": 2,
+    // 禁止在构造函数中，在调用 super() 之前使用 this 或 super
+    "no-this-before-super": 2,
+    // 要求使用 let 或 const 而不是 var
     "no-var": 2,
-    "prefer-const": 0,
+    // 建议使用箭头函数作为回调
+    "prefer-arrow-callback": 1,
+    // 要求箭头函数体使用大括号
+    "arrow-body-style": 0,
+    // 建议箭头函数的参数使用圆括号
+    "arrow-parens": 1,
+    // 要求使用模板字面量而非字符串连接
+    "prefer-template": 2,
+    // 要求使用 const 声明那些声明后不再被修改的变量
+    "prefer-const": 2,
 
-    // React
+    // React语法规则
+    // 强制在 JSX 属性中使用一致的单引号或双引号
     "jsx-quotes": [2, "prefer-double"],
     // react的PropType定义，一般是2 
-    "prop-types": [1],
+    "react/prop-types": [1],
+    // 禁止使用数组的 index 作为 key
+    "react/no-array-index-key": 0,
+    // jsx 文件必须 import React
     "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1
+    // 数组中的 jsx 必须有 key
+    "react/jsx-key": "error",
+    // 定义了的 jsx element 必须使用
+    "react/jsx-uses-vars": 2,
+    // 禁止使用未定义的 jsx elemet
+    "react/jsx-no-undef": "error",
+    // 禁止使用 pascal 写法的 jsx，比如 <TEST_COMPONENT>
+    "react/jsx-pascal-case": "error",
+    // 禁止出现重复的 props
+    "react/jsx-no-duplicate-props": "error"
   }
 }

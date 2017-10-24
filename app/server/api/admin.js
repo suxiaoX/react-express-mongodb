@@ -85,11 +85,11 @@ router.post('/article/add', async (req, res, next) => {
         console.log(err)
       } else {
         if (article.length === 0) {
-          newArtilce.save().then( ret => {
+          newArtilce.save().then( (ret) => {
             console.log(ret);
             responseData.message = ret;
             res.json(responseData);
-          }, error => {
+          }, (error) => {
             responseData.message = error;
             res.json(responseData)
           })

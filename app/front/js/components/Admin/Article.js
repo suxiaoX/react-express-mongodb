@@ -23,11 +23,11 @@ const success = () => {
     setTimeout( () => {
         modal.destroy();
         browserHistory.push('/admin/article');
-    },1500);
+    }, 1500);
 }
 @connect(
-  state => ({articles: state.articles}),
-  dispatch => bindActionCreators({...actions}, dispatch)
+  (state) => ({articles: state.articles}),
+  (dispatch) => bindActionCreators({...actions}, dispatch)
 )
 
 export class Article extends Component {
@@ -85,7 +85,7 @@ export class Article extends Component {
       <div>
         
         {
-          !isFetching ? <Table columns={columns} dataSource={articles} rowKey={users => users._id} style={{textAlign: 'center'}} bordered /> : null
+          !isFetching ? <Table columns={columns} dataSource={articles} rowKey={(users) => users._id} style={{textAlign: 'center'}} bordered /> : null
         }
       </div>
     )

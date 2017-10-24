@@ -47,18 +47,18 @@ function decrypto(str, secret) {
      let currUser = null;
      if (!req.session.user) {
         return next()
-     } else {
+     } 
         const cookie = req.cookies['user-token'];
         if (!cookie) {
             req.session.user = null;
             return next();
-        } else {
+        } 
             currUser = req.session.user;
             if (!currUser) {
 
             }
-        }
-     }
+        
+     
  }
 
  const noSession = (req, res) => {

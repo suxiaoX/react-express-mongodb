@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 
 import { receiveUserInfo } from '../../actions/about'
 @connect(
-  state => ({about: state.about}),
-  dispath => ({receiveUserInfo })
+  (state) => ({about: state.about}),
+  (dispath) => ({receiveUserInfo })
 )
 
 export default class About extends React.Component {
