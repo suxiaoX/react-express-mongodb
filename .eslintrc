@@ -31,8 +31,6 @@
     // 禁止将await写在循环里，因为这样就无法同时发送多个一部请求了
     "no-await-in-loop": "off",
     "brace-style": [2, "1tbs", { "allowSingleLine": true }],
-    // react的PropType定义，一般是2 
-    "prop-types": [1],
     "camelcase": 2,
     "curly": 2,
     "eqeqeq": 2,
@@ -76,7 +74,9 @@
 
     // React
     "jsx-quotes": [2, "prefer-double"],
+    // react的PropType定义，一般是2 
+    "react/prop-types": [1],
     "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1,
+    "react/jsx-uses-vars": 1
   }
 }
