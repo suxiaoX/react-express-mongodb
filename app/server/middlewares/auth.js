@@ -2,11 +2,12 @@
  * @Author: leo 
  * @Date: 2017-08-17 10:21:46 
  * @Last Modified by: leo
- * @Last Modified time: 2017-08-17 17:18:28
+ * @Last Modified time: 2017-10-24 14:35:15
  */
 
-const crypto = require('crypto');
+// const crypto = require('crypto');
 
+/*
 // 加密
 function encrypto(str, secret) {
     const cipher = crypto.createCipher('ase192', secret);
@@ -22,6 +23,7 @@ function decrypto(str, secret) {
     dec += decipher.final('utf8');
     return dec;
 }
+*/
 
  // 管理员权限
  const adminRequired = function (req, res, next) {

@@ -21,6 +21,7 @@
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");// css3 前缀自动补全
 const HtmlWebpackPlugin = require("html-webpack-plugin");// 自动生成 HTML
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = require("./config");//引入配置
 const api = require("./api");
@@ -102,8 +103,12 @@ module.exports = function () {
           postcss: [autoprefixer(config.autoConfig)]
         }
       }),
+      new CopyWebpackPlugin([{
+        from: defPath.STATIC_PATH
+      }]),
       // 依照模板生成 html
       new HtmlWebpackPlugin({
+        // favicon: '../static/favicon/favicon.ico',
         template: defPath.TPL_PATH,
         title: "LeoBlog",
         filename: "index.html",

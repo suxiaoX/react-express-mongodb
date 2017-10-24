@@ -23,7 +23,7 @@ module.exports = webpackMerge(baseConfig(), {
       "webpack/hot/only-dev-server",
       "./app/front/js/index.js"
     ],
-    vendor: config.vendor // 公共文件单独打包
+    vendor: config.vendor // 公共文件单独打包 
   },
   output: {
     path: defPath.DEV_PATH,// 所有输出文件的目标路径

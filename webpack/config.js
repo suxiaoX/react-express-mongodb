@@ -64,6 +64,7 @@ const ROOT_PATH = path.resolve(__dirname, '../');
 exports.defPath = {
   ROOT_PATH: ROOT_PATH,
   APP_PATH: path.resolve(ROOT_PATH, 'app'),
+  STATIC_PATH: path.resolve(ROOT_PATH, 'static'),
   DEV_PATH: path.resolve(ROOT_PATH, 'dev'),
   BUILD_PATH: path.resolve(ROOT_PATH, 'dist'),
   TPL_PATH: path.resolve(ROOT_PATH, 'static/tpl.html'),
