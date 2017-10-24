@@ -47,7 +47,7 @@ module.exports = function () {
           enforce: "pre",//前置执行 "pre"|"post" 表示 loader 的前置和后置
           test: /\.(js|jsx)$/,
           include: APP_PATH,
-          loader: "eslint-loader",
+          loader: ["babel-loader", "eslint-loader"],
           options: {
             configFile: defPath.ESLINT_PATH //指定eslint的配置文件路径
           }
