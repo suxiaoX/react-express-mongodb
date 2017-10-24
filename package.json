@@ -11,10 +11,12 @@
     "start": "webpack-dev-server --progress --colors --config webpack.dev.config.js",
     "dev": "webpack --progress --colors --config webpack.dev.config.js",
     "build": "cross-env NODE_ENV='production' webpack -p --progress --profile --colors --config webpack.prod.config.js",
-    "eslint":"eslint app --ext .js --cache --fix",
+    "eslint": "eslint app --ext .js --cache --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "pre-commit": [ "eslint" ],
+  "pre-commit": [
+    "eslint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/suxiaoX/react-express-mongodb.git"
@@ -38,8 +40,10 @@
     "cross-env": "^3.2.3",
     "css-loader": "^0.26.2",
     "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.6.3",
     "eslint-plugin-jsdoc": "^2.4.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",

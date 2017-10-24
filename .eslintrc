@@ -75,7 +75,7 @@
     // React
     "jsx-quotes": [2, "prefer-double"],
     // react的PropType定义，一般是2 
-    "react/prop-types": [1],
+    "prop-types": [1],
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1
   }
